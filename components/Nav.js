@@ -19,10 +19,10 @@ export default function Nav() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <Image
-            src="/images/logo-wordmark.png"
+            src="/images/logo-swoosh.png"
             alt="Beyond Hello Studio"
-            width={609}
-            height={296}
+            width={2778}
+            height={1535}
             priority
             className="h-16 w-auto sm:h-24"
           />

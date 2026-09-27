@@ -47,20 +47,37 @@ h1, h2, h3 {
   pointer-events: none;
 }
 
-/* The "B" mark flies a smooth curved loop around the screen (CSS motion path,
-   not point-to-point jumps, so it glides instead of teleporting) before
-   landing exactly inside its box on the left — sized/positioned so it lines
-   up flush and level with the wordmark text, matching the real artwork's
-   proportions. Percentages are the shared timeline every other intro-*
-   animation keys off (impact lands around 63%). */
-.intro-b-fly {
-  offset-path: path('M 0,0 C -420,-260 380,-320 460,10 C 520,260 -60,340 -380,120 C -560,-30 -260,-260 0,0');
+/* The colourful swoosh graphic is cut into 3 pieces (see intro-swoosh-piece-
+   a/b/c.png — together they overlay back into the exact original swoosh with
+   zero gaps or overlap). Each piece separates and flies its own curved loop
+   in a different direction (CSS motion path, not point-to-point jumps, so it
+   glides instead of teleporting), then all 3 land back together in their
+   original positions at the same moment — at which point the wordmark (a
+   separately-cut, swoosh-free layer) fades in on top to complete the logo.
+   The 3 paths are the same loop shape rotated by 0°/130°/-130°, so they read
+   as one shape scattering apart and pulling back together, not 3 unrelated
+   motions. Percentages are the shared timeline every other intro-* animation
+   keys off (impact lands ~63%). */
+.intro-swoosh-path-a {
+  offset-path: path('M 0,0 C -546,-338 494,-416 598,13 C 676,338 -78,442 -494,156 C -728,-39 -338,-338 0,0');
+  offset-anchor: 0 0;
+  offset-rotate: 0deg;
+  offset-distance: 0%;
+}
+.intro-swoosh-path-b {
+  offset-path: path('M 0,0 C 610,-201 1,646 -394,450 C -693,301 -288,-344 198,-479 C 498,-533 476,-42 0,0');
+  offset-anchor: 0 0;
+  offset-rotate: 0deg;
+  offset-distance: 0%;
+}
+.intro-swoosh-path-c {
+  offset-path: path('M 0,0 C 92,636 -636,-111 -374,-466 C -176,-735 389,-224 437,278 C 438,583 -42,476 0,0');
   offset-anchor: 0 0;
   offset-rotate: 0deg;
   offset-distance: 0%;
 }
 
-@keyframes intro-b-distance {
+@keyframes intro-swoosh-distance {
   0% {
     offset-distance: 0%;
     opacity: 0;
@@ -76,19 +93,19 @@ h1, h2, h3 {
   }
 }
 
-@keyframes intro-b-spin {
+@keyframes intro-swoosh-spin {
   0% {
     offset-rotate: 0deg;
   }
   62% {
-    offset-rotate: 1080deg;
+    offset-rotate: 720deg;
   }
   100% {
-    offset-rotate: 1080deg;
+    offset-rotate: 720deg;
   }
 }
 
-@keyframes intro-b-scale {
+@keyframes intro-swoosh-scale {
   0% {
     transform: scale(0.35);
     filter: brightness(1) drop-shadow(0 0 0 rgba(255, 255, 255, 0));
@@ -97,15 +114,15 @@ h1, h2, h3 {
     transform: scale(0.6);
   }
   63% {
-    transform: scale(1.4);
-    filter: brightness(2.6) drop-shadow(0 0 60px rgba(255, 255, 255, 0.95));
+    transform: scale(1.25);
+    filter: brightness(2.2) drop-shadow(0 0 60px rgba(255, 255, 255, 0.95));
   }
   76% {
-    transform: scale(0.9);
+    transform: scale(0.92);
     filter: brightness(1.3) drop-shadow(0 0 24px rgba(255, 47, 126, 0.55));
   }
   88% {
-    transform: scale(1.05);
+    transform: scale(1.04);
     filter: brightness(1.05) drop-shadow(0 0 10px rgba(255, 47, 126, 0.35));
   }
   100% {
@@ -114,28 +131,28 @@ h1, h2, h3 {
   }
 }
 
-.intro-b-main {
-  animation: intro-b-distance 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-spin 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-scale 3.6s cubic-bezier(0.33, 0, 0.2, 1) both;
+.intro-swoosh-main {
+  animation: intro-swoosh-distance 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-swoosh-spin 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-swoosh-scale 3.6s cubic-bezier(0.33, 0, 0.2, 1) both;
 }
 
 /* Same flight path, dimmed/blurred and time-shifted slightly (negative delay)
-   to read as a colour trail behind the main mark. */
-.intro-b-ghost {
+   to read as a colour trail behind the main swoosh. */
+.intro-swoosh-ghost {
   opacity: 0.4;
   filter: blur(9px);
 }
-.intro-b-ghost-1 {
-  animation: intro-b-distance 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-spin 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-scale 3.6s cubic-bezier(0.33, 0, 0.2, 1) both;
+.intro-swoosh-ghost-1 {
+  animation: intro-swoosh-distance 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-swoosh-spin 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-swoosh-scale 3.6s cubic-bezier(0.33, 0, 0.2, 1) both;
   animation-delay: -0.12s, -0.12s, -0.12s;
 }
-.intro-b-ghost-2 {
-  animation: intro-b-distance 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-spin 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-scale 3.6s cubic-bezier(0.33, 0, 0.2, 1) both;
+.intro-swoosh-ghost-2 {
+  animation: intro-swoosh-distance 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-swoosh-spin 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-swoosh-scale 3.6s cubic-bezier(0.33, 0, 0.2, 1) both;
   animation-delay: -0.26s, -0.26s, -0.26s;
 }
 
@@ -143,15 +160,15 @@ h1, h2, h3 {
   0%,
   58% {
     opacity: 0;
-    transform: translateX(24px);
+    transform: scale(0.96);
   }
   82% {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
   }
 }
 
