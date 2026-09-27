@@ -1,5 +1,6 @@
 import Link from "next/link";
 import WorkTile from "@/components/WorkTile";
+import InstagramGrid from "@/components/InstagramGrid";
 
 // No title here on purpose - it inherits the site default title from the
 // root layout, so this stays in sync with it automatically.
@@ -31,12 +32,9 @@ export default function HomePage() {
             </h1>
             <div className="mt-7 h-px w-10 bg-paper/30" />
             <p className="mt-7 max-w-md text-lg leading-relaxed text-muted">
-              A website is the first conversation you have with a customer, so it should sound
-              like you, not like everyone else's template. Most visitors decide whether to stay
-              or leave within a few seconds of landing, long before they read a word of your
-              copy. We build custom, launch-ready sites for founders and brands who want that
-              first impression to actually hold up. Pick a package, book your slot, and we take
-              it from there.
+              Visitors decide whether to stay in seconds, before they read a word. We build
+              custom, launch-ready sites that make those seconds count. Pick a package, book your
+              slot, and we take it from there.
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-5">
@@ -116,16 +114,25 @@ export default function HomePage() {
             Your site is doing the talking before you get the chance to.
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-paper/80">
-            By the time most customers reach out, they've already looked you up. They've formed
-            an opinion about whether you're established or just starting out, careful or
-            careless, worth the price or not, and they formed it from your site, not from
-            talking to you. A slow, generic, or outdated site quietly argues against you before
-            you've said a word.
+            By the time customers reach out, they've already looked you up and formed an
+            opinion: established or just starting out, careful or careless, worth it or not.
+            They formed it from your site, not from talking to you.
           </p>
           <p className="mt-4 max-w-lg text-base leading-relaxed text-paper/80">
             We build the version that argues for you instead: fast, custom to your business, and
             built to carry a visitor from curious to convinced. That's the whole job.
           </p>
+        </div>
+      </section>
+
+      {/* Brand banner */}
+      <section className="border-t border-line py-16">
+        <div className="overflow-hidden rounded-xl border border-line">
+          <img
+            src="/images/brand/chrome-banner.webp"
+            alt="Beyond Hello Studio wordmark, rendered in chrome"
+            className="h-auto w-full object-cover"
+          />
         </div>
       </section>
 
@@ -156,6 +163,8 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      <InstagramGrid />
 
       {/* CTA band */}
       <section className="relative my-16 overflow-hidden rounded-xl border border-line p-10">

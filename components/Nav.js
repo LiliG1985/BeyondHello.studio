@@ -19,12 +19,12 @@ export default function Nav() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
           <Image
-            src="/images/logo-swoosh.webp"
+            src="/images/logo-main.webp"
             alt="Beyond Hello Studio"
-            width={1688}
-            height={932}
+            width={1971}
+            height={467}
             priority
-            className="h-16 w-auto sm:h-24"
+            className="h-8 w-auto sm:h-11"
           />
         </Link>
         <div className="flex items-center gap-8">

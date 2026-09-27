@@ -59,16 +59,15 @@ export default function AboutPage() {
           </h1>
           <div className="mt-7 flex flex-col gap-5 text-lg leading-relaxed text-paper/80">
             <p>
-              The name comes from a simple idea: a hello is where a relationship starts, not
-              where it ends. Most business websites handle the hello well enough, a logo, a
-              headline, a few photos, then leave a visitor to find their own way to becoming a
-              customer. Beyond Hello exists to close that gap, with sites built to carry someone
-              past the first hello and into a call booked, a question answered, a sale made.
+              A hello is where a relationship starts, not where it ends. Most business sites
+              handle that well enough, then leave visitors to find their own way to becoming a
+              customer. Beyond Hello closes that gap: sites built to carry someone from hello to
+              a call booked, a question answered, a sale made.
             </p>
             <p>
-              We work with founders and small teams worldwide, remotely, on fixed-price
-              packages, so you know exactly what you're getting before you book, and can go
-              from an idea to a live site in a matter of weeks.
+              We work with founders and small teams worldwide, on fixed-price packages, so you
+              know exactly what you're getting before you book, and go from idea to live site in
+              weeks.
             </p>
             <p>
               Beyond Hello is based in Dubai, but the work isn't limited to it: clients come from
@@ -89,6 +88,26 @@ export default function AboutPage() {
           />
         </div>
       </div>
+
+      {/* The brand */}
+      <section className="mt-24 grid items-center gap-10 border-t border-line pt-16 sm:grid-cols-[0.9fr_1.1fr]">
+        <img
+          src="/images/brand/notebook-mockup.webp"
+          alt="The Beyond Hello Studio wordmark embossed on a notebook cover"
+          className="w-full rounded-xl border border-line object-cover shadow-2xl"
+        />
+        <div>
+          <span className="eyebrow">The brand</span>
+          <h2 className="mt-4 font-body text-2xl font-bold uppercase tracking-tight sm:text-3xl">
+            Built to look this good everywhere
+          </h2>
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-paper/80">
+            A brand isn't just the website. It's what still looks right printed, embossed, or
+            stamped somewhere you didn't plan for, which is exactly the bar every Beyond Hello
+            build is held to.
+          </p>
+        </div>
+      </section>
 
       {/* How we work */}
       <section className="mt-24 border-t border-line pt-16">

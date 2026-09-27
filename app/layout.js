@@ -71,8 +71,8 @@ const ORGANIZATION_JSON_LD = {
   "@type": "ProfessionalService",
   name: SITE_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/images/logo-swoosh.webp`,
-  image: `${SITE_URL}/images/logo-swoosh.webp`,
+  logo: `${SITE_URL}/images/logo-main.webp`,
+  image: `${SITE_URL}/images/logo-main.webp`,
   description: SITE_DESCRIPTION,
   email: "hello@beyondhello.studio",
   address: {

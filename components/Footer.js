@@ -31,13 +31,19 @@ export default function Footer() {
         className="absolute inset-0 h-full w-full object-cover opacity-30"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/95 to-ink/60" />
-      <Image
-        src="/images/logo-swoosh.webp"
+      <img
+        src="/images/brand/bh-chrome-render.webp"
         alt=""
         aria-hidden="true"
-        width={1688}
-        height={932}
-        className="relative mb-8 h-14 w-auto"
+        className="pointer-events-none absolute right-0 top-4 hidden w-40 opacity-60 sm:block lg:w-52"
+      />
+      <Image
+        src="/images/logo-main.webp"
+        alt=""
+        aria-hidden="true"
+        width={1971}
+        height={467}
+        className="relative mb-8 h-9 w-auto"
       />
       <div className="relative flex flex-col gap-8 border-b border-line pb-12 sm:flex-row sm:items-end sm:justify-between">
         <h2 className="max-w-sm font-body text-2xl font-bold uppercase tracking-tight sm:text-3xl">
