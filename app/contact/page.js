@@ -40,12 +40,12 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-xs">
+        <div className="relative mx-auto w-full max-w-sm">
           <div className="glow-blob absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue via-violet to-pink opacity-30" />
           <img
-            src="/images/desk-detail.jpg"
-            alt="Studio desk detail, lit by neon light"
-            className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
+            src="/images/contact-visual.webp"
+            alt="Glowing email, phone, chat and location icons woven through streams of light and code"
+            className="relative w-full object-contain drop-shadow-2xl"
           />
         </div>
       </div>
