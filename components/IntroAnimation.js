@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-// intro-swoosh-layer.png and intro-text-layer.png are two clean cutouts from
+// intro-swoosh-layer.webp and intro-text-layer.webp are two clean cutouts from
 // the SAME original artwork/canvas (2778 x 1535), so they land in exactly the
 // same spot automatically as long as both are displayed at the same size,
 // stacked in the same box — no manual alignment math needed like the old
 // B-monogram version required.
-const REF_W = 2778;
-const REF_H = 1535;
+const REF_W = 1688;
+const REF_H = 932;
 
 function scaledBox(height) {
   return { width: Math.round((REF_W / REF_H) * height), height };
@@ -74,7 +74,7 @@ export default function IntroAnimation() {
   );
 }
 
-// The swoosh is cut into 3 pieces (intro-swoosh-piece-a/b/c.png) that overlay
+// The swoosh is cut into 3 pieces (intro-swoosh-piece-a/b/c.webp) that overlay
 // back into the exact original graphic with no gaps or overlap. Each piece
 // flies its own path (see .intro-swoosh-path-a/b/c in globals.css) so they
 // visibly separate and scatter in different directions, then all land back
@@ -97,21 +97,21 @@ function Lockup({ box }) {
         <span key={p}>
           {/* Trailing ghost copies of this piece, same flight path, time-offset and blurred */}
           <Image
-            src={`/images/intro-swoosh-piece-${p}.png`}
+            src={`/images/intro-swoosh-piece-${p}.webp`}
             alt=""
             width={REF_W}
             height={REF_H}
             className={`intro-swoosh-path-${p} intro-swoosh-ghost intro-swoosh-ghost-1 absolute inset-0 h-full w-full`}
           />
           <Image
-            src={`/images/intro-swoosh-piece-${p}.png`}
+            src={`/images/intro-swoosh-piece-${p}.webp`}
             alt=""
             width={REF_W}
             height={REF_H}
             className={`intro-swoosh-path-${p} intro-swoosh-ghost intro-swoosh-ghost-2 absolute inset-0 h-full w-full`}
           />
           <Image
-            src={`/images/intro-swoosh-piece-${p}.png`}
+            src={`/images/intro-swoosh-piece-${p}.webp`}
             alt=""
             width={REF_W}
             height={REF_H}
@@ -121,7 +121,7 @@ function Lockup({ box }) {
         </span>
       ))}
       <Image
-        src="/images/intro-text-layer.png"
+        src="/images/intro-text-layer.webp"
         alt="Beyond Hello Studio"
         width={REF_W}
         height={REF_H}
