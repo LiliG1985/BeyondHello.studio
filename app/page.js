@@ -53,13 +53,13 @@ export default function HomePage() {
             </ul>
           </div>
 
-          {/* Laptop mockup */}
-          <div className="relative mx-auto w-full max-w-md">
+          {/* Hero visual */}
+          <div className="relative mx-auto w-full max-w-lg lg:max-w-xl">
             <div className="glow-blob absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-pink via-yellow to-blue opacity-40" />
             <img
-              src="/images/hero-laptop.jpg"
-              alt="beyond.hello website shown on a laptop, in a neon-lit studio"
-              className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
+              src="/images/hero-visual.webp"
+              alt="A woman surrounded by holographic website screens and streams of code, in pink, blue and orange neon"
+              className="relative w-full object-contain drop-shadow-2xl"
             />
           </div>
         </div>
