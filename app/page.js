@@ -54,7 +54,7 @@ export default function HomePage() {
           </div>
 
           {/* Hero visual */}
-          <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+          <div className="relative mx-auto hidden w-full max-w-xl sm:block lg:max-w-none">
             <div className="glow-blob absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-pink via-yellow to-blue opacity-40" />
             <img
               src="/images/hero-visual.webp"

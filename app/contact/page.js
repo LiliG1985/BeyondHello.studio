@@ -40,7 +40,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-sm">
+        <div className="relative mx-auto hidden w-full max-w-sm sm:block">
           <div className="glow-blob absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue via-violet to-pink opacity-30" />
           <img
             src="/images/contact-visual.webp"
