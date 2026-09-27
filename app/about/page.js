@@ -49,21 +49,17 @@ export default function AboutPage() {
         <div>
           <span className="eyebrow">About</span>
           <h1 className="mt-5 font-body text-4xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-5xl">
-            It started with
+            It starts with
             <br />
-            <span className="text-gradient">hello.</span>
+            <span className="text-gradient">Hello.</span>
           </h1>
           <div className="mt-7 flex flex-col gap-5 text-lg leading-relaxed text-paper/80">
             <p>
-              Every business has a first hello: the moment someone lands on your site and
-              decides, in about three seconds, whether to stay. That moment is too important to
-              leave to a generic template, and it's the whole reason Beyond Hello exists.
-            </p>
-            <p>
-              For most businesses today, a website <em>is</em> that first hello. It's the
-              impression a customer forms before they ever speak to you, and it quietly decides
-              whether they stay or click away. We build sites that carry that hello further,
-              into a call booked, a sale made, a client won.
+              The name comes from a simple idea: a hello is where a relationship starts, not
+              where it ends. Most business websites handle the hello well enough, a logo, a
+              headline, a few photos, then leave a visitor to find their own way to becoming a
+              customer. Beyond Hello exists to close that gap, with sites built to carry someone
+              past the first hello and into a call booked, a question answered, a sale made.
             </p>
             <p>
               We work with founders and small teams worldwide, remotely, on fixed-price
@@ -72,13 +68,11 @@ export default function AboutPage() {
             </p>
             <p>
               Beyond Hello is based in Dubai, but the work isn't limited to it: clients come from
-              across the UAE and from around the world, all handled remotely. The name is the
-              point. A hello is where a relationship with a customer starts, not where it ends,
-              and a site that only manages the hello and nothing after it is doing half its job.
+              across the UAE and from around the world, all handled remotely.
             </p>
           </div>
           <Link href="/book" className="btn-primary mt-10">
-            Book a call →
+            Book your build →
           </Link>
         </div>
 

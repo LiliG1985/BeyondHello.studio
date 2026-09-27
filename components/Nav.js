@@ -41,7 +41,7 @@ export default function Nav() {
             href="/book"
             className="hidden whitespace-nowrap rounded-md border border-paper/25 px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-paper transition-colors hover:border-pink hover:text-pink sm:inline-flex"
           >
-            Book a call
+            Book your build
           </Link>
           <button
             type="button"
@@ -80,7 +80,7 @@ export default function Nav() {
                 onClick={() => setOpen(false)}
                 className="block px-5 py-4 text-paper"
               >
-                Book a call
+                Book your build
               </Link>
             </li>
           </ul>
