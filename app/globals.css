@@ -115,9 +115,9 @@ h1, h2, h3 {
 }
 
 .intro-b-main {
-  animation: intro-b-distance 3s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-spin 3s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-scale 3s cubic-bezier(0.33, 0, 0.2, 1) both;
+  animation: intro-b-distance 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-spin 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-scale 3.6s cubic-bezier(0.33, 0, 0.2, 1) both;
 }
 
 /* Same flight path, dimmed/blurred and time-shifted slightly (negative delay)
@@ -127,16 +127,16 @@ h1, h2, h3 {
   filter: blur(9px);
 }
 .intro-b-ghost-1 {
-  animation: intro-b-distance 3s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-spin 3s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-scale 3s cubic-bezier(0.33, 0, 0.2, 1) both;
-  animation-delay: -0.1s, -0.1s, -0.1s;
+  animation: intro-b-distance 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-spin 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-scale 3.6s cubic-bezier(0.33, 0, 0.2, 1) both;
+  animation-delay: -0.12s, -0.12s, -0.12s;
 }
 .intro-b-ghost-2 {
-  animation: intro-b-distance 3s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-spin 3s cubic-bezier(0.33, 0, 0.2, 1) both,
-    intro-b-scale 3s cubic-bezier(0.33, 0, 0.2, 1) both;
-  animation-delay: -0.22s, -0.22s, -0.22s;
+  animation: intro-b-distance 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-spin 3.6s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-scale 3.6s cubic-bezier(0.33, 0, 0.2, 1) both;
+  animation-delay: -0.26s, -0.26s, -0.26s;
 }
 
 @keyframes intro-text-form {
@@ -156,7 +156,7 @@ h1, h2, h3 {
 }
 
 .intro-text {
-  animation: intro-text-form 3s ease-out both;
+  animation: intro-text-form 3.6s ease-out both;
 }
 
 @keyframes intro-flash-burst {
@@ -215,13 +215,13 @@ h1, h2, h3 {
 }
 
 .intro-flash {
-  animation: intro-flash-burst 3s ease-out both;
+  animation: intro-flash-burst 3.6s ease-out both;
 }
 
 .intro-whiteflash {
-  animation: intro-whiteflash 3s ease-out both;
+  animation: intro-whiteflash 3.6s ease-out both;
 }
 
 .intro-shake {
-  animation: intro-shake 3s ease-out both;
+  animation: intro-shake 3.6s ease-out both;
 }

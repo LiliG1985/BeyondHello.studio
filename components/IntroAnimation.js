@@ -60,8 +60,10 @@ export default function IntroAnimation() {
     }
 
     setPhase("playing");
-    const closeTimer = setTimeout(() => setPhase("closing"), 3600);
-    const doneTimer = setTimeout(() => setPhase("done"), 4200);
+    // Flight + landing animation runs 3.6s (see globals.css), then it holds
+    // fully still for 3s so the wordmark is actually readable, then fades.
+    const closeTimer = setTimeout(() => setPhase("closing"), 6600);
+    const doneTimer = setTimeout(() => setPhase("done"), 7100);
 
     return () => {
       clearTimeout(closeTimer);
