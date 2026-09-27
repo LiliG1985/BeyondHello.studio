@@ -2,7 +2,13 @@ import Link from "next/link";
 import { getStripe } from "@/lib/stripe";
 
 export const metadata = {
-  title: "Booking confirmed · Beyond Hello",
+  title: "Booking confirmed",
+  // This is a post-checkout confirmation page, not content for search
+  // engines to index.
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default async function BookingSuccessPage({ searchParams }) {

@@ -4,8 +4,11 @@ import PageBanner from "@/components/PageBanner";
 import { PROJECTS } from "@/lib/projects";
 
 export const metadata = {
-  title: "Work · Beyond Hello",
-  description: "Recent website builds from Beyond Hello.",
+  title: "Work",
+  description: "Recent custom website builds from Beyond Hello, for clients across the UAE and worldwide.",
+  alternates: {
+    canonical: "/work",
+  },
 };
 
 export default function WorkPage() {

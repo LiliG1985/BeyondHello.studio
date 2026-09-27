@@ -3,8 +3,11 @@ import PageBanner from "@/components/PageBanner";
 import { PACKAGE_LIST, getPackage } from "@/lib/packages";
 
 export const metadata = {
-  title: "Book · Beyond Hello",
-  description: "Book your website build and lock your slot with a deposit.",
+  title: "Book",
+  description: "Book your website build online and lock your slot on the calendar with a deposit.",
+  alternates: {
+    canonical: "/book",
+  },
 };
 
 const NEXT_STEPS = [

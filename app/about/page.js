@@ -1,8 +1,12 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "About · Beyond Hello",
-  description: "Why Beyond Hello exists, and how we work.",
+  title: "About",
+  description:
+    "Why Beyond Hello exists, how our fixed-price website process works, and who we're the right fit for.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const STEPS = [

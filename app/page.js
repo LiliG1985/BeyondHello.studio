@@ -1,6 +1,16 @@
 import Link from "next/link";
 import WorkTile from "@/components/WorkTile";
 
+// No title here on purpose - it inherits the site default title from the
+// root layout, so this stays in sync with it automatically.
+export const metadata = {
+  description:
+    "Custom, fixed-price websites for founders and brands who want their first impression to hold up. Dubai-based, worldwide clients. Book your build online.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function HomePage() {
   return (
     <main>

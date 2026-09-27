@@ -5,8 +5,12 @@ import PageBanner from "@/components/PageBanner";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Pricing · Beyond Hello",
-  description: "Fixed-price website packages. Book online and pay a deposit to lock your slot.",
+  title: "Pricing",
+  description:
+    "Fixed-price website packages from AED 3,500, plus ongoing care plans. Book online and pay a deposit to lock your slot.",
+  alternates: {
+    canonical: "/pricing",
+  },
 };
 
 const FAQS = [

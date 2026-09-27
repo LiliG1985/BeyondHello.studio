@@ -2,8 +2,11 @@ import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
-  title: "Contact · Beyond Hello",
-  description: "Get in touch with Beyond Hello.",
+  title: "Contact",
+  description: "Get in touch with Beyond Hello by email or WhatsApp to talk about your website project.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const CONTACT_EMAIL = "hello@beyondhello.studio";
