@@ -1,6 +1,5 @@
 import Link from "next/link";
 import WorkTile from "@/components/WorkTile";
-import InstagramGrid from "@/components/InstagramGrid";
 
 // No title here on purpose - it inherits the site default title from the
 // root layout, so this stays in sync with it automatically.
@@ -125,17 +124,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Brand banner */}
-      <section className="border-t border-line py-16">
-        <div className="overflow-hidden rounded-xl border border-line">
-          <img
-            src="/images/brand/chrome-banner.webp"
-            alt="Beyond Hello Studio wordmark, rendered in chrome"
-            className="h-auto w-full object-cover"
-          />
-        </div>
-      </section>
-
       {/* Recent work strip */}
       <section className="border-t border-line py-16">
         <div className="mb-8 flex items-end justify-between">
@@ -163,8 +151,6 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
-
-      <InstagramGrid />
 
       {/* CTA band */}
       <section className="relative my-16 overflow-hidden rounded-xl border border-line p-10">
