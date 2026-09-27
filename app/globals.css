@@ -46,3 +46,182 @@ h1, h2, h3 {
   filter: blur(60px);
   pointer-events: none;
 }
+
+/* The "B" mark flies a smooth curved loop around the screen (CSS motion path,
+   not point-to-point jumps, so it glides instead of teleporting) before
+   landing exactly inside its box on the left — sized/positioned so it lines
+   up flush and level with the wordmark text, matching the real artwork's
+   proportions. Percentages are the shared timeline every other intro-*
+   animation keys off (impact lands around 63%). */
+.intro-b-fly {
+  offset-path: path('M 0,0 C -420,-260 380,-320 460,10 C 520,260 -60,340 -380,120 C -560,-30 -260,-260 0,0');
+  offset-anchor: 0 0;
+  offset-rotate: 0deg;
+  offset-distance: 0%;
+}
+
+@keyframes intro-b-distance {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  62% {
+    offset-distance: 92%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes intro-b-spin {
+  0% {
+    offset-rotate: 0deg;
+  }
+  62% {
+    offset-rotate: 1080deg;
+  }
+  100% {
+    offset-rotate: 1080deg;
+  }
+}
+
+@keyframes intro-b-scale {
+  0% {
+    transform: scale(0.35);
+    filter: brightness(1) drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+  58% {
+    transform: scale(0.6);
+  }
+  63% {
+    transform: scale(1.4);
+    filter: brightness(2.6) drop-shadow(0 0 60px rgba(255, 255, 255, 0.95));
+  }
+  76% {
+    transform: scale(0.9);
+    filter: brightness(1.3) drop-shadow(0 0 24px rgba(255, 47, 126, 0.55));
+  }
+  88% {
+    transform: scale(1.05);
+    filter: brightness(1.05) drop-shadow(0 0 10px rgba(255, 47, 126, 0.35));
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1) drop-shadow(0 0 0 rgba(255, 255, 255, 0));
+  }
+}
+
+.intro-b-main {
+  animation: intro-b-distance 3s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-spin 3s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-scale 3s cubic-bezier(0.33, 0, 0.2, 1) both;
+}
+
+/* Same flight path, dimmed/blurred and time-shifted slightly (negative delay)
+   to read as a colour trail behind the main mark. */
+.intro-b-ghost {
+  opacity: 0.4;
+  filter: blur(9px);
+}
+.intro-b-ghost-1 {
+  animation: intro-b-distance 3s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-spin 3s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-scale 3s cubic-bezier(0.33, 0, 0.2, 1) both;
+  animation-delay: -0.1s, -0.1s, -0.1s;
+}
+.intro-b-ghost-2 {
+  animation: intro-b-distance 3s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-spin 3s cubic-bezier(0.33, 0, 0.2, 1) both,
+    intro-b-scale 3s cubic-bezier(0.33, 0, 0.2, 1) both;
+  animation-delay: -0.22s, -0.22s, -0.22s;
+}
+
+@keyframes intro-text-form {
+  0%,
+  58% {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  82% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.intro-text {
+  animation: intro-text-form 3s ease-out both;
+}
+
+@keyframes intro-flash-burst {
+  0%,
+  55% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  64% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+}
+
+@keyframes intro-whiteflash {
+  0%,
+  57% {
+    opacity: 0;
+  }
+  63% {
+    opacity: 0.95;
+  }
+  78% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes intro-shake {
+  0%,
+  59% {
+    transform: translate(0, 0);
+  }
+  62% {
+    transform: translate(-10px, 5px);
+  }
+  65% {
+    transform: translate(9px, -7px);
+  }
+  68% {
+    transform: translate(-6px, 4px);
+  }
+  71% {
+    transform: translate(3px, -2px);
+  }
+  75%,
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.intro-flash {
+  animation: intro-flash-burst 3s ease-out both;
+}
+
+.intro-whiteflash {
+  animation: intro-whiteflash 3s ease-out both;
+}
+
+.intro-shake {
+  animation: intro-shake 3s ease-out both;
+}

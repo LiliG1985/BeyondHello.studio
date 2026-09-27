@@ -2,6 +2,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import IntroAnimation from "@/components/IntroAnimation";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={manrope.variable}>
       <body className="bg-ink text-paper font-body antialiased">
+        <IntroAnimation />
         <div className="mx-auto max-w-6xl px-5">
           <Nav />
           {children}
