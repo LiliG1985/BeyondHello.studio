@@ -43,6 +43,16 @@ export default function WorkPage() {
                 </span>
                 <p className="mt-1 leading-relaxed">{project.build}</p>
               </div>
+              {project.testimonial && (
+                <blockquote className="mt-1 rounded-lg border border-line bg-card px-5 py-4">
+                  <p className="italic leading-relaxed text-paper/80">
+                    "{project.testimonial.quote}"
+                  </p>
+                  <footer className="mt-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
+                    — {project.testimonial.attribution}
+                  </footer>
+                </blockquote>
+              )}
             </div>
             {project.href && (
               <a
