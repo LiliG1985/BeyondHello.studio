@@ -102,11 +102,11 @@ export default function HomePage() {
       <section className="grid items-center gap-12 border-t border-line py-16 lg:grid-cols-[0.85fr_1.15fr]">
         <div className="relative mx-auto w-full max-w-sm">
           <div className="glow-blob absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-gradient-to-br from-blue via-violet to-pink opacity-30" />
-          {/* Square crop on phones, original aspect from tablet width up */}
+          {/* Phones get the gold-dress hero image instead, floating with no card/border. Everything from tablet width up is untouched. */}
           <img
-            src="/images/about-hero-mobile.webp"
-            alt="A quiet lounge corner overlooking the Dubai skyline at night"
-            className="relative w-full rounded-xl border border-line object-cover shadow-2xl sm:hidden"
+            src="/images/hero-visual.webp"
+            alt="A woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
+            className="relative w-full max-w-[220px] object-contain drop-shadow-2xl sm:hidden"
           />
           <img
             src="/images/about-hero.jpg"
