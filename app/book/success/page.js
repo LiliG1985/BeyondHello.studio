@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getStripe } from "@/lib/stripe";
+import PaymentNotifier from "@/components/PaymentNotifier";
 
 export const metadata = {
   title: "Booking confirmed",
@@ -33,6 +34,19 @@ export default async function BookingSuccessPage({ searchParams }) {
 
   return (
     <main className="py-20 text-center">
+      {paid && (
+        <PaymentNotifier
+          sessionId={sessionId}
+          packageName={meta.packageName}
+          amount={((session?.amount_total || 0) / 100).toFixed(2)}
+          name={meta.name}
+          email={meta.email}
+          company={meta.company}
+          preferredDate={meta.preferredDate}
+          details={meta.details}
+          timezone={meta.timezone}
+        />
+      )}
       <span className="eyebrow mx-auto w-fit">
         {isFreeCall ? "Request sent" : paid ? "✓ Payment received" : "Booking"}
       </span>
