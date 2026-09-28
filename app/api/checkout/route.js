@@ -2,38 +2,10 @@ import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { getPackage, FREE_CALL } from "@/lib/packages";
 
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-
-// The free call has nothing to charge, so it skips Stripe entirely - it just
-// emails the booking details (same Web3Forms setup the contact form uses)
-// and sends the visitor straight to the confirmation page.
-async function bookFreeCall({ name, email, company, details, preferredDate, timezone, origin }) {
-  if (WEB3FORMS_ACCESS_KEY) {
-    try {
-      await fetch(WEB3FORMS_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Free call booked: ${name}`,
-          from_name: "Beyond Hello website",
-          name,
-          email,
-          message: `Free 20-min call requested.\n\nCompany: ${company || "-"}\nPreferred date: ${
-            preferredDate || "-"
-          }\nTimezone: ${timezone || "-"}\n\nDetails:\n${details || "-"}`,
-        }),
-      });
-    } catch (err) {
-      // Don't block the booking on an email hiccup - it's still logged server-side.
-      console.error("Free call notification email failed:", err);
-    }
-  }
-
-  return NextResponse.json({ url: `${origin}/book/success?free=1&name=${encodeURIComponent(name)}` });
-}
-
+// Note: the free call never reaches this route - BookingForm handles it
+// entirely client-side (Web3Forms only accepts submissions sent from the
+// visitor's own browser on the registered domain, not a server-to-server
+// request like this route would make). This guard is just a safety net.
 export async function POST(request) {
   let body;
   try {
@@ -51,13 +23,14 @@ export async function POST(request) {
   if (!name || !email) {
     return NextResponse.json({ error: "Name and email are required." }, { status: 400 });
   }
-
-  const origin = process.env.NEXT_PUBLIC_SITE_URL || request.nextUrl.origin;
-
   if (pkg.id === FREE_CALL.id) {
-    return bookFreeCall({ name, email, company, details, preferredDate, timezone, origin });
+    return NextResponse.json(
+      { error: "The free call is booked from the form directly, not through checkout." },
+      { status: 400 }
+    );
   }
 
+  const origin = process.env.NEXT_PUBLIC_SITE_URL || request.nextUrl.origin;
   const stripe = getStripe();
 
   if (!stripe) {

@@ -5,6 +5,14 @@ import { PACKAGE_LIST, FREE_CALL, getPackage } from "@/lib/packages";
 
 const BOOKING_OPTIONS = [...PACKAGE_LIST, FREE_CALL];
 
+// Same Web3Forms setup the contact form uses. Web3Forms only accepts
+// submissions that come from the visitor's own browser on the registered
+// domain, so the free-call notification is sent from here (client-side),
+// not proxied through our server - a server-to-server request gets silently
+// dropped.
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+
 export default function BookingForm({ initialPackage }) {
   const [packageId, setPackageId] = useState(initialPackage);
   const [name, setName] = useState("");
@@ -24,6 +32,33 @@ export default function BookingForm({ initialPackage }) {
     e.preventDefault();
     setStatus("loading");
     setError("");
+
+    if (isFree) {
+      // Nothing to charge, so this skips the checkout API/Stripe entirely
+      // and just emails the request straight from the browser.
+      try {
+        if (WEB3FORMS_ACCESS_KEY) {
+          await fetch(WEB3FORMS_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+            body: JSON.stringify({
+              access_key: WEB3FORMS_ACCESS_KEY,
+              subject: `Free call requested: ${name}`,
+              from_name: "Beyond Hello website",
+              name,
+              email,
+              message: `Free 20-min call requested.\n\nCompany: ${company || "-"}\nPreferred date: ${
+                preferredDate || "-"
+              }\nTimezone: ${timezone || "-"}\n\nDetails:\n${details || "-"}`,
+            }),
+          });
+        }
+      } catch (err) {
+        // Don't block the confirmation on an email hiccup.
+      }
+      window.location.href = `/book/success?free=1&name=${encodeURIComponent(name)}`;
+      return;
+    }
 
     try {
       const res = await fetch("/api/checkout", {
