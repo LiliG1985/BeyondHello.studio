@@ -1,5 +1,6 @@
 import Link from "next/link";
 import WorkTile from "@/components/WorkTile";
+import Testimonials from "@/components/Testimonials";
 
 // No title here on purpose - it inherits the site default title from the
 // root layout, so this stays in sync with it automatically.
@@ -151,6 +152,8 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      <Testimonials />
 
       {/* CTA band */}
       <section className="relative my-16 overflow-hidden rounded-xl border border-line p-10">
