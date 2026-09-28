@@ -1,20 +1,40 @@
 import { NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
-import { getPackage } from "@/lib/packages";
+import { getPackage, FREE_CALL } from "@/lib/packages";
 
-export async function POST(request) {
-  const stripe = getStripe();
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
-  if (!stripe) {
-    return NextResponse.json(
-      {
-        error:
-          "Payments aren't switched on yet. Add STRIPE_SECRET_KEY in the Vercel project settings to enable checkout.",
-      },
-      { status: 503 }
-    );
+// The free call has nothing to charge, so it skips Stripe entirely - it just
+// emails the booking details (same Web3Forms setup the contact form uses)
+// and sends the visitor straight to the confirmation page.
+async function bookFreeCall({ name, email, company, details, preferredDate, timezone, origin }) {
+  if (WEB3FORMS_ACCESS_KEY) {
+    try {
+      await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Free call booked: ${name}`,
+          from_name: "Beyond Hello website",
+          name,
+          email,
+          message: `Free 20-min call requested.\n\nCompany: ${company || "-"}\nPreferred date: ${
+            preferredDate || "-"
+          }\nTimezone: ${timezone || "-"}\n\nDetails:\n${details || "-"}`,
+        }),
+      });
+    } catch (err) {
+      // Don't block the booking on an email hiccup - it's still logged server-side.
+      console.error("Free call notification email failed:", err);
+    }
   }
 
+  return NextResponse.json({ url: `${origin}/book/success?free=1&name=${encodeURIComponent(name)}` });
+}
+
+export async function POST(request) {
   let body;
   try {
     body = await request.json();
@@ -33,6 +53,23 @@ export async function POST(request) {
   }
 
   const origin = process.env.NEXT_PUBLIC_SITE_URL || request.nextUrl.origin;
+
+  if (pkg.id === FREE_CALL.id) {
+    return bookFreeCall({ name, email, company, details, preferredDate, timezone, origin });
+  }
+
+  const stripe = getStripe();
+
+  if (!stripe) {
+    return NextResponse.json(
+      {
+        error:
+          "Payments aren't switched on yet. Add STRIPE_SECRET_KEY in the Vercel project settings to enable checkout.",
+      },
+      { status: 503 }
+    );
+  }
+
   const depositAmount = pkg.deposit;
 
   try {

@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { PACKAGE_LIST, getPackage } from "@/lib/packages";
+import { PACKAGE_LIST, FREE_CALL, getPackage } from "@/lib/packages";
+
+const BOOKING_OPTIONS = [...PACKAGE_LIST, FREE_CALL];
 
 export default function BookingForm({ initialPackage }) {
   const [packageId, setPackageId] = useState(initialPackage);
@@ -14,6 +16,7 @@ export default function BookingForm({ initialPackage }) {
   const [error, setError] = useState("");
 
   const pkg = getPackage(packageId);
+  const isFree = pkg?.id === FREE_CALL.id;
   const timezone =
     typeof Intl !== "undefined" ? Intl.DateTimeFormat().resolvedOptions().timeZone : "";
 
@@ -63,9 +66,14 @@ export default function BookingForm({ initialPackage }) {
           onChange={(e) => setPackageId(e.target.value)}
           className="w-full rounded-lg border border-line bg-card px-4 py-3 text-paper"
         >
-          {PACKAGE_LIST.map((p) => (
+          {BOOKING_OPTIONS.map((p) => (
             <option key={p.id} value={p.id}>
-              {p.name} · {p.aed ? `AED ${p.aed.toLocaleString()}` : `from AED ${p.aedFrom.toLocaleString()}`}
+              {p.name} ·{" "}
+              {p.aedFrom
+                ? `from AED ${p.aedFrom.toLocaleString()}`
+                : p.aed
+                ? `AED ${p.aed.toLocaleString()}`
+                : "Free"}
             </option>
           ))}
         </select>
@@ -150,12 +158,17 @@ export default function BookingForm({ initialPackage }) {
 
       <button type="submit" disabled={status === "loading"} className="btn-primary disabled:opacity-60">
         {status === "loading"
-          ? "Redirecting to secure checkout…"
+          ? isFree
+            ? "Booking your call…"
+            : "Redirecting to secure checkout…"
+          : isFree
+          ? "Book your free call →"
           : `Pay AED ${pkg?.deposit.toLocaleString()} deposit to book →`}
       </button>
       <p className="text-xs text-muted">
-        You'll pay securely via Stripe. This deposit locks your build slot, and the remaining
-        balance is invoiced before launch.
+        {isFree
+          ? "No payment needed. We'll email you within 1 business day to confirm a time."
+          : "You'll pay securely via Stripe. This deposit locks your build slot, and the remaining balance is invoiced before launch."}
       </p>
     </form>
   );

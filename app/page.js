@@ -165,7 +165,7 @@ export default function HomePage() {
           <h3 className="max-w-sm font-body text-2xl font-extrabold uppercase tracking-tight text-paper sm:text-3xl">
             Ready to <span className="text-gradient">stop blending in</span>?
           </h3>
-          <Link href="/book" className="btn-primary border-paper/40">
+          <Link href="/book?package=free-call" className="btn-primary border-paper/40">
             Book a free 20-min call
           </Link>
         </div>
