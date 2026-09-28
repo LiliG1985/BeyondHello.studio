@@ -59,7 +59,7 @@ export default function HomePage() {
             <div className="glow-blob absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-pink via-yellow to-blue opacity-40" />
             <img
               src="/images/hero-visual.webp"
-              alt="A woman surrounded by holographic website screens and streams of code, in pink, blue and orange neon"
+              alt="A woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
               className="relative w-full object-contain drop-shadow-2xl"
             />
           </div>
