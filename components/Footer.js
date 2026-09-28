@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-// TODO (Lili): swap in your real Instagram / LinkedIn URLs once you have them.
+// TODO (Lili): swap in your real LinkedIn URL once you have it.
 const SOCIALS = [
   { label: "WhatsApp", href: "https://wa.me/971552537712" },
-  { label: "Instagram", href: "#" },
+  { label: "Instagram", href: "https://www.instagram.com/beyond_hello_digital_design/" },
   { label: "LinkedIn", href: "#" },
   { label: "Email", href: "mailto:hello@beyondhello.studio" },
 ];
