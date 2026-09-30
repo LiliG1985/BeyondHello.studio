@@ -23,7 +23,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative mt-24 overflow-hidden border-t border-line pb-14 pt-16">
+    <footer className="relative mt-10 overflow-hidden border-t border-line pb-14 pt-10 sm:mt-24 sm:pt-16">
       <img
         src="/images/footer-scene.jpg"
         alt=""

@@ -104,13 +104,15 @@ export default function HomePage() {
         {/* Phones: image bleeds to the screen edge on the left, heading sits in the
             black space beside her instead of below. Tablet/desktop are untouched. */}
         <div className="-mx-5 flex items-center gap-3 sm:hidden">
-          <div className="relative w-[68%] shrink-0 overflow-hidden">
+          <div className="relative w-[53%] shrink-0 overflow-hidden">
             {/* Rendered at the same full-bleed scale as before - this box just crops
-                off the right-hand side of it rather than shrinking the image down. */}
+                off the right-hand side of it rather than shrinking the image down.
+                Narrower than earlier so "Your site" / "is doing" each fit on one
+                line next to it instead of silently wrapping onto extra lines. */}
             <img
               src="/images/hero-visual.webp"
               alt="A woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
-              className="w-[147%] max-w-none object-contain object-left"
+              className="w-[189%] max-w-none object-contain object-left"
             />
           </div>
           <h2 className="flex-1 pr-2 font-body text-2xl font-extrabold uppercase leading-[1.15] tracking-tight text-paper">
@@ -182,7 +184,7 @@ export default function HomePage() {
       <Testimonials />
 
       {/* CTA band */}
-      <section className="relative my-16 overflow-hidden rounded-xl border border-line p-10">
+      <section className="relative my-10 overflow-hidden rounded-xl border border-line p-10 sm:my-16">
         <img
           src="/images/cta-band.jpg"
           alt=""
