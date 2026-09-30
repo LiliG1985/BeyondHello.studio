@@ -113,14 +113,16 @@ export default function HomePage() {
               className="w-[147%] max-w-none object-contain object-left"
             />
           </div>
-          <h2 className="flex-1 pr-4 font-body text-xl font-extrabold uppercase leading-[1.2] tracking-tight text-paper">
+          <h2 className="flex-1 pr-2 font-body text-2xl font-extrabold uppercase leading-[1.15] tracking-tight text-paper">
             Your site
             <br />
             is doing
             <br />
-            the talking
+            the
             <br />
-            first.
+            talking
+            <br />
+            first
           </h2>
         </div>
 
