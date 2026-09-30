@@ -101,31 +101,16 @@ export default function HomePage() {
 
       {/* Why it matters */}
       <section className="grid items-center gap-12 border-t border-line py-16 lg:grid-cols-[0.85fr_1.15fr]">
-        {/* Phones: image bleeds to the screen edge on the left, heading sits in the
-            black space beside her instead of below. Tablet/desktop are untouched. */}
-        <div className="-mx-5 flex items-center gap-3 sm:hidden">
-          <div className="relative w-[48%] shrink-0 overflow-hidden">
-            {/* Rendered at the same full-bleed scale as before - this box just crops
-                off the right-hand side of it rather than shrinking the image down.
-                Narrow enough that "TALKING FIRST" (the widest line) fits on one
-                line next to it instead of silently wrapping onto extra lines. */}
-            <img
-              src="/images/hero-visual.webp"
-              alt="A woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
-              className="w-[208%] max-w-none object-contain object-left"
-            />
-          </div>
-          <h2 className="flex-1 pr-2 font-body text-2xl font-extrabold uppercase leading-[1.15] tracking-tight text-paper">
-            Your
-            <br />
-            site
-            <br />
-            is doing
-            <br />
-            the
-            <br />
-            talking first
-          </h2>
+        {/* Phones: the finished graphic Lili supplied (photo + "Your site is
+            doing the talking first" already laid out together), used as-is
+            instead of us re-building it from a cropped photo + live text.
+            Tablet/desktop are untouched. */}
+        <div className="-mx-5 sm:hidden">
+          <img
+            src="/images/why-it-matters-mobile.webp"
+            alt="Your site is doing the talking first - a woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
+            className="w-full"
+          />
         </div>
 
         <div className="relative mx-auto hidden w-full sm:block sm:max-w-sm">
