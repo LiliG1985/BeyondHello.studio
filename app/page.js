@@ -15,11 +15,27 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main>
+      {/* Phones only: lead with the "Your site is doing the talking first"
+          graphic before anything else, so it's the first thing people see.
+          Everything below (including the hero heading) just follows after
+          it. Moved up from the "Why it matters" section further down the
+          page, rather than shown twice. */}
+      <div className="-mx-5 mb-6 sm:hidden">
+        <img
+          src="/images/why-it-matters-mobile.webp"
+          alt="Your site is doing the talking first - a woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
+          className="w-full"
+        />
+      </div>
+
       {/* Hero */}
       <section className="relative overflow-hidden py-6 sm:py-10">
-        <div className="glow-blob pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-pink opacity-20" />
-        <div className="glow-blob pointer-events-none absolute -right-16 top-32 h-72 w-72 rounded-full bg-blue opacity-20" />
-        <div className="glow-blob pointer-events-none absolute bottom-0 left-1/3 h-56 w-56 rounded-full bg-yellow opacity-10" />
+        {/* Smaller and tucked into the corners on phones - at full desktop size
+            these washed together into one shapeless smear across the text on
+            narrow screens instead of reading as a deliberate accent. */}
+        <div className="glow-blob pointer-events-none absolute -left-16 -top-16 h-36 w-36 rounded-full bg-pink opacity-10 sm:-left-24 sm:-top-24 sm:h-72 sm:w-72 sm:opacity-20" />
+        <div className="glow-blob pointer-events-none absolute -right-12 top-0 h-32 w-32 rounded-full bg-blue opacity-10 sm:-right-16 sm:top-32 sm:h-72 sm:w-72 sm:opacity-20" />
+        <div className="glow-blob pointer-events-none absolute hidden bottom-0 left-1/3 h-56 w-56 rounded-full bg-yellow opacity-10 sm:block" />
 
         <div className="relative grid items-center gap-14 lg:grid-cols-[1.15fr_1fr]">
           <div>
@@ -101,18 +117,9 @@ export default function HomePage() {
 
       {/* Why it matters */}
       <section className="grid items-center gap-12 border-t border-line py-16 lg:grid-cols-[0.85fr_1.15fr]">
-        {/* Phones: the finished graphic Lili supplied (photo + "Your site is
-            doing the talking first" already laid out together), used as-is
-            instead of us re-building it from a cropped photo + live text.
-            Tablet/desktop are untouched. */}
-        <div className="-mx-5 sm:hidden">
-          <img
-            src="/images/why-it-matters-mobile.webp"
-            alt="Your site is doing the talking first - a woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
-            className="w-full"
-          />
-        </div>
-
+        {/* The graphic for phones now leads the whole page (see top of
+            <main>), so it isn't repeated here - mobile just gets the
+            eyebrow + copy below, no separate image or heading. */}
         <div className="relative mx-auto hidden w-full sm:block sm:max-w-sm">
           <div className="glow-blob absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-gradient-to-br from-blue via-violet to-pink opacity-30" />
           <img
