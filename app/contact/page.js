@@ -13,8 +13,15 @@ const CONTACT_EMAIL = "hello@beyondhello.studio";
 
 export default function ContactPage() {
   return (
-    <main className="py-14">
-      <div>
+    <main className="relative overflow-hidden py-14">
+      {/* Background depth: soft colour glows sitting behind the copy, same
+          treatment used on the homepage, so this page doesn't feel flat
+          against the plain dark background. */}
+      <div className="glow-blob pointer-events-none absolute -left-24 -top-10 h-80 w-80 rounded-full bg-pink opacity-20" />
+      <div className="glow-blob pointer-events-none absolute -right-20 top-24 h-72 w-72 rounded-full bg-blue opacity-20" />
+      <div className="glow-blob pointer-events-none absolute bottom-0 left-1/4 h-64 w-64 rounded-full bg-gradient-to-br from-violet via-pink to-yellow opacity-10" />
+
+      <div className="relative">
         <span className="eyebrow">Contact</span>
         <h1 className="mt-5 font-body text-4xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-5xl">
           Say <span className="text-gradient">hello.</span>
@@ -39,7 +46,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <section className="mt-20 border-t border-line pt-16">
+      <section className="relative mt-20 border-t border-line pt-16">
         <h2 className="font-body text-xl font-bold uppercase tracking-tight">Send a message</h2>
         <p className="mt-3 max-w-xl text-sm text-muted">
           Tell us a bit about what you need. We reply by email within 1 business day.

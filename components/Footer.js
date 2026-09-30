@@ -35,7 +35,7 @@ export default function Footer() {
         src="/images/brand/bh-chrome-render.webp"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-4 hidden w-40 opacity-60 sm:block lg:w-52"
+        className="pointer-events-none absolute right-0 top-4 hidden w-40 opacity-90 sm:block lg:w-52"
       />
       <Image
         src="/images/logo-main.webp"
