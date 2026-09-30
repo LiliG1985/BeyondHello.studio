@@ -72,8 +72,9 @@ export default function HomePage() {
       </section>
 
       {/* Where we work */}
-      <section className="border-t border-line py-16">
-        <div className="mb-8 max-w-lg">
+      <section className="relative overflow-hidden border-t border-line py-16">
+        <div className="glow-blob pointer-events-none absolute -left-16 top-10 h-56 w-56 rounded-full bg-gradient-to-br from-blue via-violet to-pink opacity-20" />
+        <div className="relative mb-8 max-w-lg">
           <span className="eyebrow">Where we work</span>
           <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight sm:text-2xl">
             Dubai-based, built for anywhere
@@ -81,7 +82,7 @@ export default function HomePage() {
         </div>
         <Link
           href="/pricing"
-          className="group flex items-center justify-between gap-4 rounded-lg border border-line bg-card p-6 transition-colors hover:border-pink"
+          className="group relative flex items-center justify-between gap-4 rounded-lg border border-line bg-card p-6 transition-colors hover:border-pink"
         >
           <div>
             <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
@@ -100,23 +101,40 @@ export default function HomePage() {
 
       {/* Why it matters */}
       <section className="grid items-center gap-12 border-t border-line py-16 lg:grid-cols-[0.85fr_1.15fr]">
-        <div className="relative mx-auto w-full sm:max-w-sm">
+        {/* Phones: image bleeds to the screen edge on the left, heading sits in the
+            black space beside her instead of below. Tablet/desktop are untouched. */}
+        <div className="-mx-5 flex items-center gap-3 sm:hidden">
+          <div className="relative w-[68%] shrink-0 overflow-hidden">
+            {/* Rendered at the same full-bleed scale as before - this box just crops
+                off the right-hand side of it rather than shrinking the image down. */}
+            <img
+              src="/images/hero-visual.webp"
+              alt="A woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
+              className="w-[147%] max-w-none object-contain object-left"
+            />
+          </div>
+          <h2 className="flex-1 pr-4 font-body text-xl font-extrabold uppercase leading-[1.2] tracking-tight text-paper">
+            Your site
+            <br />
+            is doing
+            <br />
+            the talking
+            <br />
+            first.
+          </h2>
+        </div>
+
+        <div className="relative mx-auto hidden w-full sm:block sm:max-w-sm">
           <div className="glow-blob absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-gradient-to-br from-blue via-violet to-pink opacity-30" />
-          {/* Phones get the gold-dress hero image instead, floating with no card/border, at full width. Everything from tablet width up is untouched. */}
-          <img
-            src="/images/hero-visual.webp"
-            alt="A woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
-            className="relative w-full object-contain drop-shadow-2xl sm:hidden"
-          />
           <img
             src="/images/about-hero.jpg"
             alt="A quiet lounge corner overlooking the Dubai skyline at night"
-            className="relative hidden w-full rounded-xl border border-line object-cover shadow-2xl sm:block"
+            className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
           />
         </div>
         <div>
           <span className="eyebrow">Why it matters</span>
-          <h2 className="mt-4 font-body text-2xl font-bold uppercase tracking-tight sm:text-3xl">
+          <h2 className="mt-4 hidden font-body text-2xl font-bold uppercase tracking-tight sm:block sm:text-3xl">
             Your site is doing the talking before you get the chance to.
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-paper/80">
