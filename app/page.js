@@ -104,27 +104,27 @@ export default function HomePage() {
         {/* Phones: image bleeds to the screen edge on the left, heading sits in the
             black space beside her instead of below. Tablet/desktop are untouched. */}
         <div className="-mx-5 flex items-center gap-3 sm:hidden">
-          <div className="relative w-[53%] shrink-0 overflow-hidden">
+          <div className="relative w-[48%] shrink-0 overflow-hidden">
             {/* Rendered at the same full-bleed scale as before - this box just crops
                 off the right-hand side of it rather than shrinking the image down.
-                Narrower than earlier so "Your site" / "is doing" each fit on one
+                Narrow enough that "TALKING FIRST" (the widest line) fits on one
                 line next to it instead of silently wrapping onto extra lines. */}
             <img
               src="/images/hero-visual.webp"
               alt="A woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
-              className="w-[189%] max-w-none object-contain object-left"
+              className="w-[208%] max-w-none object-contain object-left"
             />
           </div>
           <h2 className="flex-1 pr-2 font-body text-2xl font-extrabold uppercase leading-[1.15] tracking-tight text-paper">
-            Your site
+            Your
+            <br />
+            site
             <br />
             is doing
             <br />
             the
             <br />
-            talking
-            <br />
-            first
+            talking first
           </h2>
         </div>
 
