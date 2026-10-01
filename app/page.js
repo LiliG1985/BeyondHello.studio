@@ -67,6 +67,7 @@ export default function HomePage() {
               <li>E-commerce</li>
               <li>Branding</li>
               <li>Digital strategy</li>
+              <li>Booking systems</li>
             </ul>
           </div>
 

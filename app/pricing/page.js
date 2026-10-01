@@ -1,5 +1,7 @@
 import { PACKAGE_LIST, MAINTENANCE_PLANS } from "@/lib/packages";
+import { BOOKING_SYSTEMS } from "@/lib/bookingSystems";
 import PricingCard from "@/components/PricingCard";
+import BookingSystemCard from "@/components/BookingSystemCard";
 import MaintenanceCard from "@/components/MaintenanceCard";
 import PageBanner from "@/components/PageBanner";
 import Link from "next/link";
@@ -72,6 +74,29 @@ export default function PricingPage() {
       >
         Questions about a package? Message us on WhatsApp →
       </a>
+
+      <section className="mt-20 border-t border-line pt-16">
+        <span className="eyebrow">New</span>
+        <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight">
+          Booking &amp; Client Systems
+        </h2>
+        <p className="mt-3 max-w-lg text-muted">
+          Let clients book online while you stay in control. A private dashboard for your diary,
+          your clients and your forms, built around how your business actually works.
+        </p>
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+          {BOOKING_SYSTEMS.map((pkg) => (
+            <BookingSystemCard key={pkg.id} pkg={pkg} />
+          ))}
+        </div>
+        <p className="mt-4 max-w-lg text-xs text-muted">
+          No booking fees and no monthly app subscription. Your system runs on your own Google
+          account, and you own everything.
+        </p>
+        <Link href="/book?package=free-call" className="btn-primary mt-8">
+          Book a consultation →
+        </Link>
+      </section>
 
       <section className="mt-20 border-t border-line pt-16">
         <span className="eyebrow">Optional</span>
