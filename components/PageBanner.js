@@ -1,8 +1,8 @@
-export default function PageBanner({ eyebrow, title, subtitle }) {
+export default function PageBanner({ eyebrow, title, subtitle, image }) {
   return (
     <div className="relative -mx-5 mb-14 overflow-hidden border-b border-line px-5 py-16 sm:mb-16">
       <img
-        src="/images/page-banner.jpg"
+        src={image || "/images/page-banner.jpg"}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"

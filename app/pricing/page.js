@@ -49,6 +49,7 @@ export default function PricingPage() {
         eyebrow="Pricing"
         title="Packages"
         subtitle="Fixed pricing, so you know exactly what you're booking. Pick a package, pay a deposit to lock your build slot, and the rest happens on the calendar."
+        image="/images/pricing-header-banner.jpg"
       />
 
       <p className="mb-12 max-w-2xl text-sm leading-relaxed text-muted">
@@ -56,12 +57,6 @@ export default function PricingPage() {
         padded agency rate card. You're paying for the build itself: no unnecessary layers
         between you and the people doing the work.
       </p>
-
-      <img
-        src="/images/pricing-header-banner.jpg"
-        alt="Glowing icon panels on a rock platform in a neon pink and gold cloudscape, showing a calendar, a star, a crown, a diamond and a checklist, representing the different package tiers"
-        className="mb-12 w-full rounded-xl border border-line object-cover shadow-2xl"
-      />
 
       <div className="grid gap-5 sm:grid-cols-3">
         {PACKAGE_LIST.map((pkg) => (
