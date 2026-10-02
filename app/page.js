@@ -162,6 +162,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Booking & Client Systems banner */}
+      <section className="border-t border-line py-16">
+        <div className="max-w-lg">
+          <span className="eyebrow">New</span>
+          <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight sm:text-2xl">
+            Booking and client systems, built around your business
+          </h2>
+          <p className="mt-3 text-muted">
+            For small businesses, salons and studios that need to take payments, manage client
+            lists, run a calendar and handle bookings, all without juggling separate apps.
+          </p>
+        </div>
+
+        <div className="relative left-1/2 right-1/2 -mx-[50vw] mt-8 w-screen">
+          {/* Separate crops for phone vs. tablet/desktop: the tall portrait
+              version keeps the dashboard graphic readable on a narrow phone
+              screen instead of squashing the wide banner down to a sliver. */}
+          <img
+            src="/images/booking-systems-banner-mobile.jpg"
+            alt="A beauty treatment room set on a cliff at sunset, beside a glowing bookings dashboard showing today's appointments, a deposit received and a reminder sent - Beyond Hello, work from anywhere, all your clients and bookings in one place"
+            className="w-full object-cover sm:hidden"
+          />
+          <img
+            src="/images/booking-systems-banner.jpg"
+            alt="A beauty treatment room set on a cliff at sunset, beside a glowing bookings dashboard showing today's appointments, a deposit received and a reminder sent - Beyond Hello, work from anywhere, all your clients and bookings in one place"
+            className="hidden w-full object-cover sm:block sm:max-h-[480px]"
+          />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-ink/70 to-transparent sm:h-36" />
+          <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-10">
+            <Link href="/pricing" className="btn-primary">
+              See booking packages →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Recent work strip */}
       <section className="border-t border-line py-16">
         <div className="mb-8 flex items-end justify-between">
@@ -187,34 +223,6 @@ export default function HomePage() {
       </section>
 
       <Testimonials />
-
-      {/* Booking & Client Systems banner */}
-      <section className="border-t border-line py-16">
-        <div className="max-w-lg">
-          <span className="eyebrow">New</span>
-          <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight sm:text-2xl">
-            Booking and client systems, built around your business
-          </h2>
-          <p className="mt-3 text-muted">
-            For small businesses, salons and studios that need to take payments, manage client
-            lists, run a calendar and handle bookings, all without juggling separate apps.
-          </p>
-        </div>
-
-        <div className="relative left-1/2 right-1/2 -mx-[50vw] mt-8 w-screen">
-          <img
-            src="/images/booking-systems-banner.jpg"
-            alt="A beauty treatment room set on a cliff at sunset, beside a glowing bookings dashboard showing today's appointments, a deposit received and a reminder sent - Beyond Hello, work from anywhere, all your clients and bookings in one place"
-            className="w-full object-cover sm:max-h-[480px]"
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-ink/70 to-transparent sm:h-36" />
-          <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-10">
-            <Link href="/pricing" className="btn-primary">
-              See booking packages →
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* CTA band */}
       <section className="relative my-10 overflow-hidden rounded-xl border border-line p-10 sm:my-16">
