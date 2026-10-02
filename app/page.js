@@ -36,6 +36,10 @@ export default function HomePage() {
         <div className="glow-blob pointer-events-none absolute -left-16 -top-16 h-36 w-36 rounded-full bg-pink opacity-10 sm:-left-24 sm:-top-24 sm:h-72 sm:w-72 sm:opacity-20" />
         <div className="glow-blob pointer-events-none absolute -right-12 top-0 h-32 w-32 rounded-full bg-blue opacity-10 sm:-right-16 sm:top-32 sm:h-72 sm:w-72 sm:opacity-20" />
         <div className="glow-blob pointer-events-none absolute hidden bottom-0 left-1/3 h-56 w-56 rounded-full bg-yellow opacity-10 sm:block" />
+        {/* Extra colour down where the services list and stats strip sit -
+            that stretch was past the reach of the glows above it and read
+            as flat and plain, especially on phones. */}
+        <div className="glow-blob pointer-events-none absolute bottom-0 right-0 h-44 w-44 rounded-full bg-gradient-to-br from-yellow via-pink to-violet opacity-10 sm:h-64 sm:w-64 sm:opacity-20" />
 
         <div className="relative grid items-center gap-14 lg:grid-cols-[1.15fr_1fr]">
           <div>
@@ -62,12 +66,22 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
-              <li>Websites</li>
-              <li>E-commerce</li>
-              <li>Branding</li>
-              <li>Digital strategy</li>
-              <li>Booking systems</li>
+            <ul className="relative mt-12 flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.2em]">
+              <li className="rounded-full border border-pink/40 bg-pink/10 px-4 py-2 text-pink">
+                Websites
+              </li>
+              <li className="rounded-full border border-blue/40 bg-blue/10 px-4 py-2 text-blue">
+                E-commerce
+              </li>
+              <li className="rounded-full border border-yellow/40 bg-yellow/10 px-4 py-2 text-yellow">
+                Branding
+              </li>
+              <li className="rounded-full border border-violet/40 bg-violet/10 px-4 py-2 text-violet">
+                Digital strategy
+              </li>
+              <li className="rounded-full border border-pink/40 bg-pink/10 px-4 py-2 text-pink">
+                Booking systems
+              </li>
             </ul>
           </div>
 
@@ -82,9 +96,11 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative mt-16 flex flex-col gap-4 border-t border-line pt-7 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted sm:flex-row sm:items-center sm:justify-between">
-          <span>Dubai, UAE · Worldwide clients</span>
-          <span>Fixed pricing · Clear process · Real results</span>
+        <div className="relative mt-16 grid gap-3 border-t border-line pt-7 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted sm:grid-cols-2">
+          <div className="rounded-lg border border-line bg-card px-4 py-3">Dubai, UAE · Worldwide clients</div>
+          <div className="rounded-lg border border-line bg-card px-4 py-3 sm:text-right">
+            Fixed pricing · Clear process · Real results
+          </div>
         </div>
       </section>
 
@@ -171,6 +187,34 @@ export default function HomePage() {
       </section>
 
       <Testimonials />
+
+      {/* Booking & Client Systems banner */}
+      <section className="border-t border-line py-16">
+        <div className="max-w-lg">
+          <span className="eyebrow">New</span>
+          <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight sm:text-2xl">
+            Booking and client systems, built around your business
+          </h2>
+          <p className="mt-3 text-muted">
+            For small businesses, salons and studios that need to take payments, manage client
+            lists, run a calendar and handle bookings, all without juggling separate apps.
+          </p>
+        </div>
+
+        <div className="relative left-1/2 right-1/2 -mx-[50vw] mt-8 w-screen">
+          <img
+            src="/images/booking-systems-banner.jpg"
+            alt="A beauty treatment room set on a cliff at sunset, beside a glowing bookings dashboard showing today's appointments, a deposit received and a reminder sent - Beyond Hello, work from anywhere, all your clients and bookings in one place"
+            className="w-full object-cover sm:max-h-[480px]"
+          />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-ink/70 to-transparent sm:h-36" />
+          <div className="absolute bottom-5 left-5 sm:bottom-8 sm:left-10">
+            <Link href="/pricing" className="btn-primary">
+              See booking packages →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* CTA band */}
       <section className="relative my-10 overflow-hidden rounded-xl border border-line p-10 sm:my-16">
