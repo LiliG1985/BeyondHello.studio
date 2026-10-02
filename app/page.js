@@ -132,37 +132,8 @@ export default function HomePage() {
         </Link>
       </section>
 
-      {/* Why it matters */}
-      <section className="grid items-center gap-12 border-t border-line py-16 lg:grid-cols-[0.85fr_1.15fr]">
-        {/* The graphic for phones now leads the whole page (see top of
-            <main>), so it isn't repeated here - mobile just gets the
-            eyebrow + copy below, no separate image or heading. */}
-        <div className="relative mx-auto hidden w-full sm:block sm:max-w-sm">
-          <div className="glow-blob absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-gradient-to-br from-blue via-violet to-pink opacity-30" />
-          <img
-            src="/images/make-them-click.jpg"
-            alt="Beyond Hello: make them click. Beautiful websites that perform, next to a neon cursor icon glowing beside a dark infinity pool at night"
-            className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
-          />
-        </div>
-        <div>
-          <span className="eyebrow">Why it matters</span>
-          <h2 className="mt-4 hidden font-body text-2xl font-bold uppercase tracking-tight sm:block sm:text-3xl">
-            Your site is doing the talking before you get the chance to.
-          </h2>
-          <p className="mt-5 max-w-lg text-base leading-relaxed text-paper/80">
-            By the time customers reach out, they've already looked you up and formed an
-            opinion: established or just starting out, careful or careless, worth it or not.
-            They formed it from your site, not from talking to you.
-          </p>
-          <p className="mt-4 max-w-lg text-base leading-relaxed text-paper/80">
-            We build the version that argues for you instead: fast, custom to your business, and
-            built to carry a visitor from curious to convinced. That's the whole job.
-          </p>
-        </div>
-      </section>
-
-      {/* Booking & Client Systems banner */}
+      {/* Booking & Client Systems banner - moved above Why it matters so the
+          page doesn't run two plain text sections back to back on phones. */}
       <section className="border-t border-line py-16">
         <div className="max-w-lg">
           <span className="eyebrow">New</span>
@@ -198,6 +169,54 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Why it matters */}
+      <section className="relative overflow-hidden border-t border-line py-16">
+        {/* This section used to be flat text-only on phones (no image, no
+            colour) since the graphic moved to the top of the page - added a
+            background glow and a few accent tags so it doesn't read as a
+            plain wall of paragraphs. */}
+        <div className="glow-blob pointer-events-none absolute -right-20 top-0 h-56 w-56 rounded-full bg-gradient-to-br from-pink via-violet to-blue opacity-10 sm:opacity-20" />
+        <div className="relative grid items-center gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+          {/* The graphic for phones now leads the whole page (see top of
+              <main>), so it isn't repeated here - mobile just gets the
+              eyebrow + copy below, no separate image or heading. */}
+          <div className="relative mx-auto hidden w-full sm:block sm:max-w-sm">
+            <div className="glow-blob absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-gradient-to-br from-blue via-violet to-pink opacity-30" />
+            <img
+              src="/images/make-them-click.jpg"
+              alt="Beyond Hello: make them click. Beautiful websites that perform, next to a neon cursor icon glowing beside a dark infinity pool at night"
+              className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
+            />
+          </div>
+          <div>
+            <span className="eyebrow">Why it matters</span>
+            <h2 className="mt-4 hidden font-body text-2xl font-bold uppercase tracking-tight sm:block sm:text-3xl">
+              Your site is doing the talking before you get the chance to.
+            </h2>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-paper/80">
+              By the time customers reach out, they've already looked you up and formed an
+              opinion: established or just starting out, careful or careless, worth it or not.
+              They formed it from your site, not from talking to you.
+            </p>
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-paper/80">
+              We build the version that argues for you instead: fast, custom to your business, and
+              built to carry a visitor from curious to convinced. That's the whole job.
+            </p>
+            <ul className="relative mt-7 flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.2em]">
+              <li className="rounded-full border border-pink/40 bg-pink/10 px-4 py-2 text-pink">
+                Fast
+              </li>
+              <li className="rounded-full border border-blue/40 bg-blue/10 px-4 py-2 text-blue">
+                Credible
+              </li>
+              <li className="rounded-full border border-yellow/40 bg-yellow/10 px-4 py-2 text-yellow">
+                Converts
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       {/* Recent work strip */}
       <section className="border-t border-line py-16">
         <div className="mb-8 flex items-end justify-between">
@@ -206,6 +225,11 @@ export default function HomePage() {
             View all
           </Link>
         </div>
+        <img
+          src="/images/recent-work-banner.jpg"
+          alt="Dark, glowing website and app mockups on display screens, showing a Dubai skyline hero image, a pool villa listing and a handbag e-commerce store, lit by pink and gold neon"
+          className="mb-8 w-full rounded-xl border border-line object-cover shadow-2xl"
+        />
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           <WorkTile
             label="Greenhouse Events UAE"
