@@ -140,8 +140,8 @@ export default function HomePage() {
         <div className="relative mx-auto hidden w-full sm:block sm:max-w-sm">
           <div className="glow-blob absolute -bottom-8 -left-8 h-28 w-28 rounded-full bg-gradient-to-br from-blue via-violet to-pink opacity-30" />
           <img
-            src="/images/about-hero.jpg"
-            alt="A quiet lounge corner overlooking the Dubai skyline at night"
+            src="/images/make-them-click.jpg"
+            alt="Beyond Hello: make them click. Beautiful websites that perform, next to a neon cursor icon glowing beside a dark infinity pool at night"
             className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
           />
         </div>
