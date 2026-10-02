@@ -18,6 +18,7 @@ export default function WorkPage() {
         eyebrow="Portfolio"
         title="Recent work"
         subtitle="A look at what's shipped so far. More case studies are added as projects launch."
+        image="/images/recent-work-banner.jpg"
       />
 
       <div className="grid gap-8 sm:grid-cols-2">

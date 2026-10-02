@@ -225,11 +225,6 @@ export default function HomePage() {
             View all
           </Link>
         </div>
-        <img
-          src="/images/recent-work-banner.jpg"
-          alt="Dark, glowing website and app mockups on display screens, showing a Dubai skyline hero image, a pool villa listing and a handbag e-commerce store, lit by pink and gold neon"
-          className="mb-8 w-full rounded-xl border border-line object-cover shadow-2xl"
-        />
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           <WorkTile
             label="Greenhouse Events UAE"
