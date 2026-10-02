@@ -57,6 +57,12 @@ export default function PricingPage() {
         between you and the people doing the work.
       </p>
 
+      <img
+        src="/images/pricing-header-banner.jpg"
+        alt="Glowing icon panels on a rock platform in a neon pink and gold cloudscape, showing a calendar, a star, a crown, a diamond and a checklist, representing the different package tiers"
+        className="mb-12 w-full rounded-xl border border-line object-cover shadow-2xl"
+      />
+
       <div className="grid gap-5 sm:grid-cols-3">
         {PACKAGE_LIST.map((pkg) => (
           <PricingCard key={pkg.id} pkg={pkg} />
