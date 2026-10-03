@@ -101,10 +101,18 @@ export default function AboutPage() {
 
         <div className="relative mx-auto w-full max-w-sm">
           <div className="glow-blob absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-pink via-yellow to-blue opacity-30" />
+          {/* No card border/shadow here on purpose - Lili wanted this one to
+              fade into the dark background instead of sitting in a boxed
+              frame, so the edges dissolve out with a soft mask instead of a
+              hard rectangle. */}
           <img
             src="/images/about-visual.jpg"
             alt="A laptop and phone showing the Beyond Hello website on a candlelit table overlooking the Dubai skyline at sunset, framed by palm leaves"
-            className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
+            className="relative w-full object-cover"
+            style={{
+              maskImage: "radial-gradient(ellipse at center, black 58%, transparent 100%)",
+              WebkitMaskImage: "radial-gradient(ellipse at center, black 58%, transparent 100%)",
+            }}
           />
         </div>
       </div>
