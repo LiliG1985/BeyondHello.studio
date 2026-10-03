@@ -30,17 +30,17 @@ const STEPS = [
   {
     n: "01",
     label: "Ideas",
-    text: "A short scoping call to figure out exactly what your site needs to do, and just as important, what it doesn't. We look at who's actually landing on your site, what they're trying to accomplish, and where the current version loses them.",
+    text: "A short call to pin down exactly what your site needs to do, and just as important, what it doesn't. We look at who's actually landing on your site, what they came to do, and where the current version loses them.",
   },
   {
     n: "02",
-    label: "Design & develop",
-    text: "A custom build on a fixed timeline, with real progress you can see along the way, not a black box. You'll see working versions early, so nothing about the final site is a surprise.",
+    label: "Design & build",
+    text: "A custom build you can watch take shape, not a black box you wait on. You'll see working versions early, so nothing about the final site is a surprise on launch day.",
   },
   {
     n: "03",
     label: "Launch & beyond",
-    text: "You get a live, working site, plus a clear path for what to add next as the business grows: a blog, a booking flow, a second language, whatever comes next for you.",
+    text: "You walk away with a live, working site, plus a clear next move as the business grows: a blog, a booking system, a second language, whatever's next for you.",
   },
 ];
 
@@ -76,19 +76,22 @@ export default function AboutPage() {
           </h1>
           <div className="mt-7 flex flex-col gap-5 text-lg leading-relaxed text-paper/80">
             <p>
-              A hello is where a relationship starts, not where it ends. Most business sites
-              handle that well enough, then leave visitors to find their own way to becoming a
-              customer. Beyond Hello closes that gap: sites built to carry someone from hello to
-              a call booked, a question answered, a sale made.
+              A hello is where a relationship starts, not where it ends. Most business sites get
+              that first moment right, then leave visitors stranded, unsure what to do next or
+              whether to trust you at all. Beyond Hello closes that gap. Every site is built to
+              carry someone from their first look at your brand to a call booked, a question
+              answered, a sale made.
             </p>
             <p>
-              We work with founders and small teams worldwide, on packages scoped before you
-              book, so you know exactly what you're getting, and go from idea to live site in
-              weeks.
+              We work with founders and small teams who are done looking like an afterthought
+              online. You get a price scoped before you book, a site built around your business
+              instead of squeezed into someone else's template, and a live launch in weeks, not
+              months.
             </p>
             <p>
-              Beyond Hello is based in Dubai, but the work isn't limited to it: clients come from
-              across the UAE and from around the world, all handled remotely.
+              Beyond Hello is based in Dubai, though the work reaches well beyond it. We take on
+              clients from across the UAE and from around the world, every project run remotely
+              from the first call to launch day.
             </p>
           </div>
           <Link href="/book" className="btn-primary mt-10">
@@ -99,8 +102,8 @@ export default function AboutPage() {
         <div className="relative mx-auto w-full max-w-sm">
           <div className="glow-blob absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-pink via-yellow to-blue opacity-30" />
           <img
-            src="/images/about-hero.jpg"
-            alt="A quiet lounge corner overlooking the Dubai skyline at night"
+            src="/images/about-visual.jpg"
+            alt="A laptop and phone showing the Beyond Hello website on a candlelit table overlooking the Dubai skyline at sunset, framed by palm leaves"
             className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
           />
         </div>
@@ -119,9 +122,9 @@ export default function AboutPage() {
             Built to look this good everywhere
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-paper/80">
-            A brand isn't just the website. It's what still looks right printed, embossed, or
-            stamped somewhere you didn't plan for, which is exactly the bar every Beyond Hello
-            build is held to.
+            A brand isn't just the website. It's what still looks right on a business card, a
+            tote bag, or embossed on a notebook you never planned on making. Every Beyond Hello
+            build is held to that same bar: polished enough to survive leaving the screen.
           </p>
         </div>
       </section>
