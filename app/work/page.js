@@ -3,11 +3,27 @@ import WorkTile from "@/components/WorkTile";
 import PageBanner from "@/components/PageBanner";
 import { PROJECTS } from "@/lib/projects";
 
+const WORK_DESCRIPTION =
+  "Recent custom website builds from Beyond Hello, for clients across the UAE and worldwide.";
+
 export const metadata = {
   title: "Work",
-  description: "Recent custom website builds from Beyond Hello, for clients across the UAE and worldwide.",
+  description: WORK_DESCRIPTION,
   alternates: {
     canonical: "/work",
+  },
+  openGraph: {
+    type: "website",
+    url: "/work",
+    siteName: "Beyond Hello",
+    title: "Work · Beyond Hello",
+    description: WORK_DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Work · Beyond Hello",
+    description: WORK_DESCRIPTION,
   },
 };
 

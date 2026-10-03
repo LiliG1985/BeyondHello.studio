@@ -2,18 +2,34 @@ import BookingForm from "@/components/BookingForm";
 import PageBanner from "@/components/PageBanner";
 import { PACKAGE_LIST, getPackage } from "@/lib/packages";
 
+const BOOK_DESCRIPTION =
+  "Request your build online. We'll scope your project on a quick call before anything is charged.";
+
 export const metadata = {
   title: "Book",
-  description: "Book your website build online and lock your slot on the calendar with a deposit.",
+  description: BOOK_DESCRIPTION,
   alternates: {
     canonical: "/book",
+  },
+  openGraph: {
+    type: "website",
+    url: "/book",
+    siteName: "Beyond Hello",
+    title: "Book · Beyond Hello",
+    description: BOOK_DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book · Beyond Hello",
+    description: BOOK_DESCRIPTION,
   },
 };
 
 const NEXT_STEPS = [
-  "You pay a deposit to lock your build slot on the calendar.",
+  "We scope your project and confirm your exact price on a quick call.",
+  "You pay a deposit via a secure link to lock your build slot on the calendar.",
   "We send a short kickoff form for logo, copy, and any brand assets you have.",
-  "You'll hear from us within 24 hours to confirm your exact start date.",
 ];
 
 export default function BookPage({ searchParams }) {
@@ -26,7 +42,7 @@ export default function BookPage({ searchParams }) {
       <PageBanner
         eyebrow="Book"
         title="Book your build"
-        subtitle="Pick a package and tell us a bit about the project. You'll pay a deposit to lock your slot, and the rest is invoiced before launch."
+        subtitle="Pick a package and tell us a bit about the project. We'll scope it and confirm your exact price on a quick call before anything is charged."
       />
 
       {cancelled && (

@@ -16,12 +16,18 @@ const WHATSAPP_LINK = "https://wa.me/971552537712";
 
 export default async function BookingSuccessPage({ searchParams }) {
   const isFreeCall = searchParams?.free === "1";
-  const freeCallName = searchParams?.name || "";
+  // "Scoped" bookings: every paid package now books this way - the request
+  // is sent, but nothing is charged yet. Kept separate from the Stripe
+  // `paid` case below, which still exists for a manually-sent payment link
+  // once a project is scoped and priced.
+  const isScoped = searchParams?.scoped === "1";
+  const requestName = searchParams?.name || "";
+  const scopedPackage = searchParams?.package || "";
   const sessionId = searchParams?.session_id;
   const stripe = getStripe();
 
   let session = null;
-  if (!isFreeCall && stripe && sessionId) {
+  if (!isFreeCall && !isScoped && stripe && sessionId) {
     try {
       session = await stripe.checkout.sessions.retrieve(sessionId);
     } catch (err) {
@@ -48,16 +54,20 @@ export default async function BookingSuccessPage({ searchParams }) {
         />
       )}
       <span className="eyebrow mx-auto w-fit">
-        {isFreeCall ? "Request sent" : paid ? "✓ Payment received" : "Booking"}
+        {isFreeCall || isScoped ? "Request sent" : paid ? "✓ Payment received" : "Booking"}
       </span>
       <h1 className="mt-6 font-display text-4xl font-bold sm:text-5xl">
-        {isFreeCall ? "Almost there" : paid ? "You're booked!" : "Almost there"}
+        {paid ? "You're booked!" : "Almost there"}
       </h1>
       <p className="mx-auto mt-4 max-w-md text-lg text-paper/80">
         {isFreeCall
           ? `Thanks${
-              freeCallName ? `, ${freeCallName}` : ""
+              requestName ? `, ${requestName}` : ""
             }. Your time and date request has been sent, and we'll be in touch to confirm your call.`
+          : isScoped
+          ? `Thanks${
+              requestName ? `, ${requestName}` : ""
+            }. Your ${scopedPackage || "project"} request has been sent. We'll email you within 1 business day to scope the project and confirm your exact price, then send a secure link to pay your deposit and lock the slot.`
           : paid
           ? `Thanks${meta.name ? `, ${meta.name}` : ""}. Your deposit for the ${
               meta.packageName || "project"
@@ -68,7 +78,7 @@ export default async function BookingSuccessPage({ searchParams }) {
         <Link href="/" className="btn-secondary inline-block">
           Back to home
         </Link>
-        {isFreeCall && (
+        {(isFreeCall || isScoped) && (
           <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer" className="btn-secondary inline-block">
             Or message us on WhatsApp →
           </a>

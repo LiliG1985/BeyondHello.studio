@@ -1,11 +1,27 @@
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 
+const CONTACT_DESCRIPTION =
+  "Get in touch with Beyond Hello by email or WhatsApp to talk about your website project.";
+
 export const metadata = {
   title: "Contact",
-  description: "Get in touch with Beyond Hello by email or WhatsApp to talk about your website project.",
+  description: CONTACT_DESCRIPTION,
   alternates: {
     canonical: "/contact",
+  },
+  openGraph: {
+    type: "website",
+    url: "/contact",
+    siteName: "Beyond Hello",
+    title: "Contact · Beyond Hello",
+    description: CONTACT_DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact · Beyond Hello",
+    description: CONTACT_DESCRIPTION,
   },
 };
 

@@ -7,19 +7,39 @@ import MaintenanceCard from "@/components/MaintenanceCard";
 import PageBanner from "@/components/PageBanner";
 import Link from "next/link";
 
+const PRICING_TITLE = "Pricing";
+const PRICING_DESCRIPTION =
+  "Website packages from AED 2,600, booking & client systems, brand packs and ongoing care plans. Book a free call and pay a deposit once your project is scoped.";
+
 export const metadata = {
-  title: "Pricing",
-  description:
-    "Website packages from AED 1,900, plus ongoing care plans. Book online and pay a deposit to lock your slot.",
+  title: PRICING_TITLE,
+  description: PRICING_DESCRIPTION,
   alternates: {
     canonical: "/pricing",
+  },
+  // Pages inherit the homepage's Open Graph/Twitter card data unless they set
+  // their own, so without this a link to /pricing shared on WhatsApp,
+  // LinkedIn etc. would show the homepage's title and blurb instead of this
+  // page's - this is what makes the shared preview actually match the page.
+  openGraph: {
+    type: "website",
+    url: "/pricing",
+    siteName: "Beyond Hello",
+    title: `${PRICING_TITLE} · Beyond Hello`,
+    description: PRICING_DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${PRICING_TITLE} · Beyond Hello`,
+    description: PRICING_DESCRIPTION,
   },
 };
 
 const FAQS = [
   {
     q: "How does the deposit work?",
-    a: "You pay a deposit at booking to secure your build slot on the calendar. The remaining balance is invoiced once the site is ready to launch, so you're never charged the full amount upfront.",
+    a: "Nothing is charged when you book. We scope your project and confirm the exact price on a quick call first, then send a secure link to pay your deposit and lock your build slot. The remaining balance is invoiced once the site is ready to launch.",
   },
   {
     q: "Why not just buy a template for less?",
@@ -43,9 +63,29 @@ const FAQS = [
   },
 ];
 
+// Structured data for the FAQ section below, so Google can show these
+// questions directly in search results (the "People also ask"-style
+// expandable rich result) instead of someone having to click through first.
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
 export default function PricingPage() {
   return (
     <main className="pb-14">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
       <PageBanner
         eyebrow="Pricing"
         title="Packages"

@@ -8,7 +8,7 @@ import HeroEditableImage from "@/components/HeroEditableImage";
 // root layout, so this stays in sync with it automatically.
 export const metadata = {
   description:
-    "Custom websites for founders and brands who want their first impression to hold up, from AED 1,900. Dubai-based, worldwide clients. Book your build online.",
+    "Custom websites for founders and brands who want their first impression to hold up, from AED 2,600. Dubai-based, worldwide clients. Book your build online.",
   alternates: {
     canonical: "/",
   },

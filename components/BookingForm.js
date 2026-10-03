@@ -33,60 +33,43 @@ export default function BookingForm({ initialPackage }) {
     setStatus("loading");
     setError("");
 
-    if (isFree) {
-      // Nothing to charge, so this skips the checkout API/Stripe entirely
-      // and just emails the request straight from the browser.
-      try {
-        if (WEB3FORMS_ACCESS_KEY) {
-          await fetch(WEB3FORMS_ENDPOINT, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", Accept: "application/json" },
-            body: JSON.stringify({
-              access_key: WEB3FORMS_ACCESS_KEY,
-              subject: `Free call requested: ${name}`,
-              from_name: "Beyond Hello website",
-              name,
-              email,
-              message: `Free 20-min call requested.\n\nCompany: ${company || "-"}\nPreferred date: ${
-                preferredDate || "-"
-              }\nTimezone: ${timezone || "-"}\n\nDetails:\n${details || "-"}`,
-            }),
-          });
-        }
-      } catch (err) {
-        // Don't block the confirmation on an email hiccup.
-      }
-      window.location.href = `/book/success?free=1&name=${encodeURIComponent(name)}`;
-      return;
-    }
-
+    // Every package books the same way now: no payment at this step. Every
+    // package shows a "From" price, so the real total depends on the actual
+    // scope - charging a fixed deposit automatically here would often charge
+    // the wrong amount. Instead this just sends the request, we scope the
+    // project and confirm the real price on a call, then send a secure link
+    // to pay the deposit and lock the slot.
     try {
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          packageId,
-          name,
-          email,
-          company,
-          preferredDate,
-          details,
-          timezone,
-        }),
-      });
-      const data = await res.json();
-
-      if (!res.ok) {
-        setStatus("error");
-        setError(data.error || "Something went wrong. Please try again.");
-        return;
+      if (WEB3FORMS_ACCESS_KEY) {
+        await fetch(WEB3FORMS_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: isFree
+              ? `Free call requested: ${name}`
+              : `${pkg?.name || "Package"} booking request: ${name}`,
+            from_name: "Beyond Hello website",
+            name,
+            email,
+            package: isFree ? "Free 20-min call" : pkg?.name,
+            message: `${
+              isFree ? "Free 20-min call" : `${pkg?.name} booking`
+            } requested.\n\nCompany: ${company || "-"}\nPreferred date: ${
+              preferredDate || "-"
+            }\nTimezone: ${timezone || "-"}\n\nDetails:\n${details || "-"}`,
+          }),
+        });
       }
-
-      window.location.href = data.url;
     } catch (err) {
-      setStatus("error");
-      setError("Network error. Please check your connection and try again.");
+      // Don't block the confirmation on an email hiccup.
     }
+
+    window.location.href = isFree
+      ? `/book/success?free=1&name=${encodeURIComponent(name)}`
+      : `/book/success?scoped=1&package=${encodeURIComponent(pkg?.name || "")}&name=${encodeURIComponent(
+          name
+        )}`;
   }
 
   return (
@@ -193,17 +176,15 @@ export default function BookingForm({ initialPackage }) {
 
       <button type="submit" disabled={status === "loading"} className="btn-primary disabled:opacity-60">
         {status === "loading"
-          ? isFree
-            ? "Booking your call…"
-            : "Redirecting to secure checkout…"
+          ? "Sending your request…"
           : isFree
           ? "Book your free call →"
-          : `Pay AED ${pkg?.deposit.toLocaleString()} deposit to book →`}
+          : "Request your scope call →"}
       </button>
       <p className="text-xs text-muted">
         {isFree
           ? "No payment needed. We'll email you within 1 business day to confirm a time."
-          : "You'll pay securely via Stripe. This deposit locks your build slot, and the remaining balance is invoiced before launch."}
+          : "No payment today. We'll confirm your exact price on a quick call, then send a secure link to pay your deposit and lock the slot."}
       </p>
     </form>
   );

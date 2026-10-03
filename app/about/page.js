@@ -1,11 +1,28 @@
 import Link from "next/link";
 
+const ABOUT_DESCRIPTION =
+  "Why Beyond Hello exists, how our website process works, and who we're the right fit for.";
+
 export const metadata = {
   title: "About",
-  description:
-    "Why Beyond Hello exists, how our website process works, and who we're the right fit for.",
+  description: ABOUT_DESCRIPTION,
   alternates: {
     canonical: "/about",
+  },
+  // Without this, a link to /about shared anywhere shows the homepage's
+  // preview card instead of this page's own title and blurb.
+  openGraph: {
+    type: "website",
+    url: "/about",
+    siteName: "Beyond Hello",
+    title: "About · Beyond Hello",
+    description: ABOUT_DESCRIPTION,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About · Beyond Hello",
+    description: ABOUT_DESCRIPTION,
   },
 };
 
