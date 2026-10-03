@@ -101,6 +101,22 @@ export default function PricingPage() {
       </section>
 
       <section className="mt-20 border-t border-line pt-16">
+        <span className="eyebrow">Optional</span>
+        <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight">
+          Ongoing care
+        </h2>
+        <p className="mt-3 max-w-lg text-muted">
+          Once a site is live, someone still has to keep it updated, backed up, and current.
+          Add a Care plan whenever you want that handled, no long-term contract required.
+        </p>
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
+          {MAINTENANCE_PLANS.map((plan) => (
+            <MaintenanceCard key={plan.id} plan={plan} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-20 border-t border-line pt-16">
         <span className="eyebrow">Design services</span>
         <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight">
           Brand Packs
@@ -136,19 +152,54 @@ export default function PricingPage() {
         </Link>
       </section>
 
-      <section className="mt-20 border-t border-line pt-16">
-        <span className="eyebrow">Optional</span>
-        <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight">
-          Ongoing care
-        </h2>
-        <p className="mt-3 max-w-lg text-muted">
-          Once a site is live, someone still has to keep it updated, backed up, and current.
-          Add a Care plan whenever you want that handled, no long-term contract required.
-        </p>
-        <div className="mt-8 grid gap-5 sm:grid-cols-3">
-          {MAINTENANCE_PLANS.map((plan) => (
-            <MaintenanceCard key={plan.id} plan={plan} />
-          ))}
+      {/* Go bigger - event and activation branding, priced on request rather
+          than as fixed packages since the scope varies so much job to job. */}
+      <section className="grid items-center gap-12 border-t border-line py-16 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="relative mx-auto w-full max-w-sm">
+          <div className="glow-blob absolute -bottom-8 -right-8 h-28 w-28 rounded-full bg-gradient-to-br from-pink via-violet to-blue opacity-30" />
+          <img
+            src="/images/go-bigger.jpg"
+            alt="A branded event activation at night: a step and repeat wall, feather flags and an entrance tunnel all carrying the Beyond Hello logo, with lounge seating and branded ice cream cups in the foreground"
+            className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
+          />
+        </div>
+        <div>
+          <span className="eyebrow">Go bigger</span>
+          <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight sm:text-2xl">
+            Branding for events and activations
+          </h2>
+          <p className="mt-3 max-w-lg text-muted">
+            For launches, pop ups and activations that need to feel unmistakably yours, down to
+            the smallest detail on the table.
+          </p>
+          <ul className="mt-5 flex flex-col gap-2 text-sm text-paper/90">
+            <li className="flex gap-2">
+              <span className="text-pink">✓</span>
+              <span>Step and repeat walls</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-pink">✓</span>
+              <span>Feather flags and banners</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-pink">✓</span>
+              <span>Branded ice cream cups and favours</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-pink">✓</span>
+              <span>Event cushions and soft furnishings</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-pink">✓</span>
+              <span>Custom fabrications: entrances, backdrops and stage sets</span>
+            </li>
+          </ul>
+          <p className="mt-5 text-sm font-semibold text-paper/80">
+            Price on request, scoped to your event.
+          </p>
+          <Link href="/book?package=free-call" className="btn-primary mt-6">
+            Book a consultation →
+          </Link>
         </div>
       </section>
 
