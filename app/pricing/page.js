@@ -159,7 +159,7 @@ export default function PricingPage() {
           <div className="glow-blob absolute -bottom-8 -right-8 h-28 w-28 rounded-full bg-gradient-to-br from-pink via-violet to-blue opacity-30" />
           <img
             src="/images/go-bigger.jpg"
-            alt="A branded event activation at night: a step and repeat wall, feather flags and an entrance tunnel all carrying the Beyond Hello logo, with lounge seating and branded ice cream cups in the foreground"
+            alt="A branded event activation at night: a step and repeat wall, feather flags and an entrance tunnel all carrying the Beyond Hello logo, with lounge seating and branded giveaways in the foreground"
             className="relative w-full rounded-xl border border-line object-cover shadow-2xl"
           />
         </div>
@@ -183,7 +183,7 @@ export default function PricingPage() {
             </li>
             <li className="flex gap-2">
               <span className="text-pink">✓</span>
-              <span>Branded ice cream cups and favours</span>
+              <span>Branded giveaways and favours</span>
             </li>
             <li className="flex gap-2">
               <span className="text-pink">✓</span>
