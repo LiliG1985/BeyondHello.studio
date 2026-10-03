@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "About",
   description:
-    "Why Beyond Hello exists, how our fixed-price website process works, and who we're the right fit for.",
+    "Why Beyond Hello exists, how our website process works, and who we're the right fit for.",
   alternates: {
     canonical: "/about",
   },
@@ -33,7 +33,7 @@ const FIT = [
     items: [
       "You're launching or relaunching and want it done properly, once",
       "You have a real offer and just need the site to carry it",
-      "You'd rather pay a fair fixed price than an hourly clock",
+      "You'd rather pay a clear, scoped price than an hourly clock",
     ],
   },
   {
@@ -65,8 +65,8 @@ export default function AboutPage() {
               a call booked, a question answered, a sale made.
             </p>
             <p>
-              We work with founders and small teams worldwide, on fixed-price packages, so you
-              know exactly what you're getting before you book, and go from idea to live site in
+              We work with founders and small teams worldwide, on packages scoped before you
+              book, so you know exactly what you're getting, and go from idea to live site in
               weeks.
             </p>
             <p>
@@ -129,8 +129,8 @@ export default function AboutPage() {
       <section className="mt-24 border-t border-line pt-16">
         <h2 className="font-body text-xl font-bold uppercase tracking-tight">Is this a fit?</h2>
         <p className="mt-3 max-w-xl text-sm text-muted">
-          Fixed-price, fixed-scope work goes better when expectations line up early. Here's the
-          honest version.
+          Clear-scope work goes better when expectations line up early. Here's the honest
+          version.
         </p>
         <div className="mt-8 grid gap-8 sm:grid-cols-2">
           {FIT.map((group) => (

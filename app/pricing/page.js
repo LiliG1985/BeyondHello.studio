@@ -1,5 +1,6 @@
 import { PACKAGE_LIST, MAINTENANCE_PLANS } from "@/lib/packages";
 import { BOOKING_SYSTEMS } from "@/lib/bookingSystems";
+import { BRAND_PACKS } from "@/lib/brandPacks";
 import PricingCard from "@/components/PricingCard";
 import BookingSystemCard from "@/components/BookingSystemCard";
 import MaintenanceCard from "@/components/MaintenanceCard";
@@ -9,7 +10,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Pricing",
   description:
-    "Fixed-price website packages from AED 3,500, plus ongoing care plans. Book online and pay a deposit to lock your slot.",
+    "Website packages from AED 1,900, plus ongoing care plans. Book online and pay a deposit to lock your slot.",
   alternates: {
     canonical: "/pricing",
   },
@@ -48,7 +49,7 @@ export default function PricingPage() {
       <PageBanner
         eyebrow="Pricing"
         title="Packages"
-        subtitle="Fixed pricing, so you know exactly what you're booking. Pick a package, pay a deposit to lock your build slot, and the rest happens on the calendar."
+        subtitle="Clear starting prices, scoped to your project on a quick call. Pick a package, pay a deposit to lock your build slot, and the rest happens on the calendar."
         image="/images/pricing-header-banner.jpg"
       />
 
@@ -94,6 +95,34 @@ export default function PricingPage() {
           No booking fees and no monthly app subscription. Your system runs on your own Google
           account, and you own everything.
         </p>
+        <Link href="/book?package=free-call" className="btn-primary mt-8">
+          Book a consultation →
+        </Link>
+      </section>
+
+      <section className="mt-20 border-t border-line pt-16">
+        <span className="eyebrow">Design services</span>
+        <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight">
+          Brand Packs
+        </h2>
+        <p className="mt-3 max-w-lg text-muted">
+          Logos, flyers, social templates and merchandise, designed to match. Sold on their own,
+          with or without a website build.
+        </p>
+
+        <div className="relative left-1/2 right-1/2 mt-8 -mx-[50vw] w-screen">
+          <img
+            src="/images/brand-packs-banner.jpg"
+            alt="A Beyond Hello brand pack laid out on marble: a desktop and phone showing the website, a brand identity guidelines book, business cards, a tote bag, a water bottle, a cap and a sweatshirt, all carrying the same logo and look, in front of a Dubai skyline at dusk"
+            className="w-full object-cover sm:max-h-[420px]"
+          />
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          {BRAND_PACKS.map((pkg) => (
+            <BookingSystemCard key={pkg.id} pkg={pkg} />
+          ))}
+        </div>
         <Link href="/book?package=free-call" className="btn-primary mt-8">
           Book a consultation →
         </Link>

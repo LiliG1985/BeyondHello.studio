@@ -6,7 +6,7 @@ import Testimonials from "@/components/Testimonials";
 // root layout, so this stays in sync with it automatically.
 export const metadata = {
   description:
-    "Custom, fixed-price websites for founders and brands who want their first impression to hold up. Dubai-based, worldwide clients. Book your build online.",
+    "Custom websites for founders and brands who want their first impression to hold up, from AED 1,900. Dubai-based, worldwide clients. Book your build online.",
   alternates: {
     canonical: "/",
   },
@@ -99,7 +99,7 @@ export default function HomePage() {
         <div className="relative mt-16 grid gap-3 border-t border-line pt-7 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted sm:grid-cols-2">
           <div className="rounded-lg border border-line bg-card px-4 py-3">Dubai, UAE · Worldwide clients</div>
           <div className="rounded-lg border border-line bg-card px-4 py-3 sm:text-right">
-            Fixed pricing · Clear process · Real results
+            Clear pricing · Clear process · Real results
           </div>
         </div>
       </section>

@@ -17,7 +17,7 @@ const SITE_URL = "https://beyondhello.studio";
 const SITE_NAME = "Beyond Hello";
 const SITE_TITLE = "Beyond Hello · Websites built for what's next";
 const SITE_DESCRIPTION =
-  "Custom-built, launch-ready websites for founders and brands who want their first hello to land. Fixed-price packages, Dubai-based, clients worldwide.";
+  "Custom-built, launch-ready websites for founders and brands who want their first hello to land. Packages from AED 1,900, Dubai-based, clients worldwide.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -32,7 +32,7 @@ export const metadata = {
     "custom website builder",
     "small business website",
     "e-commerce website Dubai",
-    "fixed price website packages",
+    "website packages from AED 1,900",
     "Beyond Hello",
   ],
   applicationName: SITE_NAME,
@@ -81,7 +81,7 @@ const ORGANIZATION_JSON_LD = {
     addressCountry: "AE",
   },
   areaServed: "Worldwide",
-  priceRange: "AED 3,500 - AED 18,000+",
+  priceRange: "AED 1,900 - AED 13,000+",
 };
 
 export default function RootLayout({ children }) {
