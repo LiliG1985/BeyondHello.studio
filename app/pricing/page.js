@@ -111,10 +111,18 @@ export default function PricingPage() {
         </p>
 
         <div className="relative left-1/2 right-1/2 mt-8 -mx-[50vw] w-screen">
+          {/* Separate crop for phones, same pattern as the booking systems
+              banner further up - keeps the products and logo readable on a
+              narrow screen instead of squashing the wide banner down. */}
+          <img
+            src="/images/brand-packs-banner-mobile.jpg"
+            alt="A Beyond Hello brand pack laid out on marble: a laptop and phone showing the website, a brand identity guidelines book, business cards, a tote bag, a water bottle, a cap and a sweatshirt, all carrying the same logo and look, in a plant-filled courtyard with the Dubai skyline at dusk"
+            className="w-full object-cover sm:hidden"
+          />
           <img
             src="/images/brand-packs-banner.jpg"
             alt="A Beyond Hello brand pack laid out on marble: a desktop and phone showing the website, a brand identity guidelines book, business cards, a tote bag, a water bottle, a cap and a sweatshirt, all carrying the same logo and look, in front of a Dubai skyline at dusk"
-            className="w-full object-cover sm:max-h-[420px]"
+            className="hidden w-full object-cover sm:block sm:max-h-[420px]"
           />
         </div>
 
@@ -137,7 +145,7 @@ export default function PricingPage() {
           Once a site is live, someone still has to keep it updated, backed up, and current.
           Add a Care plan whenever you want that handled, no long-term contract required.
         </p>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 sm:max-w-2xl">
+        <div className="mt-8 grid gap-5 sm:grid-cols-3">
           {MAINTENANCE_PLANS.map((plan) => (
             <MaintenanceCard key={plan.id} plan={plan} />
           ))}
