@@ -1,8 +1,6 @@
 import Link from "next/link";
 import WorkTile from "@/components/WorkTile";
 import Testimonials from "@/components/Testimonials";
-import HeroEditableText from "@/components/HeroEditableText";
-import HeroEditableImage from "@/components/HeroEditableImage";
 
 // No title here on purpose - it inherits the site default title from the
 // root layout, so this stays in sync with it automatically.
@@ -45,9 +43,19 @@ export default function HomePage() {
 
         <div className="relative grid items-center gap-14 lg:grid-cols-[1.15fr_1fr]">
           <div>
-            <HeroEditableText
-              defaultParagraph="Visitors decide whether to stay in seconds, before they read a word. We build custom, launch-ready sites that make those seconds count. Pick a package, book your slot, and we take it from there."
-            />
+            <h1 className="font-body text-4xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              We build the website
+              <br />
+              your competitors
+              <br />
+              <span className="text-gradient">wish they had</span>
+            </h1>
+            <div className="mt-7 h-px w-10 bg-paper/30" />
+            <p className="mt-7 max-w-md text-lg leading-relaxed text-muted">
+              Visitors decide whether to stay in seconds, before they read a word. We build
+              custom, launch-ready sites that make those seconds count. Pick a package, book your
+              slot, and we take it from there.
+            </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-5">
               <Link href="/book" className="btn-primary">
@@ -80,14 +88,18 @@ export default function HomePage() {
           {/* Hero visual */}
           <div className="relative mx-auto hidden w-full max-w-xl sm:block lg:max-w-none">
             <div className="glow-blob absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-pink via-yellow to-blue opacity-40" />
-            <HeroEditableImage
-              defaultImage="/images/hero-visual.webp"
+            <img
+              src="/images/hero-visual.webp"
               alt="A woman in a flowing gold gown surrounded by swirling ribbons of light and glowing orbs, in pink, blue and gold"
+              className="relative w-full object-contain drop-shadow-2xl"
             />
           </div>
         </div>
 
-        <div className="relative mt-16 grid gap-3 border-t border-line pt-7 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted sm:grid-cols-2">
+        {/* Hidden on phones per Lili's request - on a narrow screen these two
+            boxes just added extra scroll before "Where we work," so mobile
+            skips straight there instead. Still shown on tablet/desktop. */}
+        <div className="relative mt-16 hidden gap-3 border-t border-line pt-7 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted sm:grid sm:grid-cols-2">
           <div className="rounded-lg border border-line bg-card px-4 py-3">Dubai, UAE · Worldwide clients</div>
           <div className="rounded-lg border border-line bg-card px-4 py-3 sm:text-right">
             Clear pricing · Clear process · Real results
