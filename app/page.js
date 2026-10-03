@@ -241,6 +241,12 @@ export default function HomePage() {
             gradient="blue"
             image="/images/work/sonkei.jpg"
           />
+          <WorkTile
+            label="By Nastasija"
+            tag="Skin & PMU studio, Dubai"
+            gradient="yellow"
+            image="/images/work/bynastasija.jpg"
+          />
         </div>
       </section>
 
