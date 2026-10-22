@@ -1,6 +1,7 @@
 import Link from "next/link";
 import WorkTile from "@/components/WorkTile";
 import Testimonials from "@/components/Testimonials";
+import { PROJECTS } from "@/lib/projects";
 
 // No title here on purpose - it inherits the site default title from the
 // root layout, so this stays in sync with it automatically.
@@ -229,24 +230,17 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-          <WorkTile
-            label="Greenhouse Events UAE"
-            tag="Event production · Dubai"
-            gradient="pink"
-            image="/images/work/greenhouse.jpg"
-          />
-          <WorkTile
-            label="Sonkei Co."
-            tag="Apparel, nutrition & skincare"
-            gradient="blue"
-            image="/images/work/sonkei.jpg"
-          />
-          <WorkTile
-            label="By Nastasija"
-            tag="Skin & PMU studio, Dubai"
-            gradient="yellow"
-            image="/images/work/bynastasija.jpg"
-          />
+          {PROJECTS.filter((project) => project.featured)
+            .slice(0, 3)
+            .map((project) => (
+              <WorkTile
+                key={project.id}
+                label={project.name}
+                tag={project.tag}
+                gradient={project.gradient}
+                image={project.image}
+              />
+            ))}
         </div>
       </section>
 
