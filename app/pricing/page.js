@@ -120,6 +120,21 @@ export default function PricingPage() {
       <section className="mt-20 border-t border-line pt-16">
         <span className="eyebrow">New</span>
         <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight">
+          Personal Pages
+        </h2>
+        <p className="mt-3 max-w-lg text-muted">
+          A page built around you, not your business, for performers, speakers, founders and
+          entrepreneurs running more than one thing. From a single page to full booking and a
+          calendar.
+        </p>
+        <Link href="/personal-pages" className="btn-secondary mt-6 w-fit text-sm">
+          See Personal Pages →
+        </Link>
+      </section>
+
+      <section className="mt-20 border-t border-line pt-16">
+        <span className="eyebrow">New</span>
+        <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight">
           Booking &amp; Client Systems
         </h2>
         <p className="mt-3 max-w-lg text-muted">
