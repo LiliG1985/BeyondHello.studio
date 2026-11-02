@@ -87,16 +87,23 @@ export default function PricingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
       />
       <PageBanner
-        eyebrow="Pricing"
+        eyebrow="For businesses"
         title="Packages"
-        subtitle="Clear starting prices, scoped to your project on a quick call. Pick a package, pay a deposit to lock your build slot, and the rest happens on the calendar."
+        subtitle="Website builds, booking systems and brand bundles for businesses, scoped to your project on a quick call. Pick a package, pay a deposit to lock your build slot, and the rest happens on the calendar."
         image="/images/pricing-header-banner.jpg"
       />
 
-      <p className="mb-12 max-w-2xl text-sm leading-relaxed text-muted">
+      <p className="max-w-2xl text-sm leading-relaxed text-muted">
         These numbers sit at the competitive, well-run end of the real 2026 Dubai market, not a
         padded agency rate card. You're paying for the build itself: no unnecessary layers
         between you and the people doing the work.
+      </p>
+      <p className="mb-12 mt-2 max-w-2xl text-sm text-muted">
+        Building a page for yourself as a professional, not a business?{" "}
+        <Link href="/personal-pages" className="text-paper underline underline-offset-2 hover:text-pink">
+          See Personal Pages
+        </Link>
+        .
       </p>
 
       <div className="grid gap-5 sm:grid-cols-3">
@@ -117,19 +124,28 @@ export default function PricingPage() {
         Questions about a package? Message us on WhatsApp →
       </a>
 
-      <section className="mt-20 border-t border-line pt-16">
-        <span className="eyebrow">New</span>
-        <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight">
-          Personal Pages
-        </h2>
-        <p className="mt-3 max-w-lg text-muted">
-          A page built around you, not your business, for performers, speakers, founders and
-          entrepreneurs running more than one thing. From a single page to full booking and a
-          calendar.
-        </p>
-        <Link href="/personal-pages" className="btn-secondary mt-6 w-fit text-sm">
-          See Personal Pages →
-        </Link>
+      <section className="relative mt-20 overflow-hidden rounded-xl border border-line p-10">
+        <img
+          src="/images/personal-pages-banner.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-ink/80" />
+        <div className="relative">
+          <span className="eyebrow">New</span>
+          <h2 className="mt-4 font-body text-xl font-bold uppercase tracking-tight">
+            Personal Pages
+          </h2>
+          <p className="mt-3 max-w-lg text-muted">
+            A page built around you, not your business, for performers, speakers, founders and
+            entrepreneurs running more than one thing. From a single page to full booking and a
+            calendar.
+          </p>
+          <Link href="/personal-pages" className="btn-secondary mt-6 w-fit text-sm">
+            See Personal Pages →
+          </Link>
+        </div>
       </section>
 
       <section className="mt-20 border-t border-line pt-16">
