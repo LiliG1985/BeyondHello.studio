@@ -34,6 +34,19 @@ export default function BookingSystemCard({ pkg }) {
           </ul>
         </div>
       )}
+      {pkg.addOns && pkg.addOns.length > 0 && (
+        <div className="flex flex-col gap-2 border-t border-line/60 pt-4">
+          {pkg.addOnsNote && <p className="text-xs font-semibold text-paper/60">{pkg.addOnsNote}</p>}
+          <ul className="flex flex-col gap-2 text-sm text-muted">
+            {pkg.addOns.map((f) => (
+              <li key={f} className="flex gap-2">
+                <span className="text-muted">+</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       {pkg.timeline && <p className="text-xs text-muted">Turnaround: {pkg.timeline}</p>}
     </div>
   );
