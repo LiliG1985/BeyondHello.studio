@@ -5,7 +5,7 @@ import { PERSONAL_PAGES } from "@/lib/personalPages";
 
 const TITLE = "Personal Pages";
 const DESCRIPTION =
-  "A page built around you: performer, speaker, founder, or someone running more than one business at once. Bio, gallery, video, links and booking, all in one place, from AED 1,200.";
+  "A page built around you: performer, speaker, founder, or someone running more than one business at once. Bio, gallery, video, links and booking, all in one place, from AED 1,500.";
 
 export const metadata = {
   title: TITLE,

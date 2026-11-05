@@ -75,8 +75,10 @@ export default function Footer() {
           ))}
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
+          <Link href="/personal-pages" className="hover:text-paper">Personal Pages</Link>
           <Link href="/work" className="hover:text-paper">Work</Link>
           <Link href="/pricing" className="hover:text-paper">Services</Link>
+          <Link href="/about" className="hover:text-paper">About</Link>
           <Link href="/contact" className="hover:text-paper">Contact</Link>
           <span>© {new Date().getFullYear()} Beyond Hello</span>
         </div>
